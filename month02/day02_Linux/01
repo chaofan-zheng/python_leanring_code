@@ -1,0 +1,56 @@
+命令难点：
+
+练习1：
+生成一个文件my.log，第一行是当前信息，后面写入/etc/mysql 内的文件详细信息，最后写入自己的署名
+date > my.log
+echo "" >> my.log    # 为文件添加换行
+ls -l /etc/mysql >> my.log
+echo "" >> my.log
+echo "Name Aiden" >> my.log
+
+练习2：
+用vi 编写1～20之间所有奇数的乘积
+vid odd.py
+i
+程序-程序-程序
+esc
+:wq
+python3 odd.py
+
+练习3
+为2048游戏添加软链接
+
+练习4
+添加组名、用户
+sudo groupadd aiden
+sudo useradd -m aiden -g aiden
+sudo passwd aiden
+sudo vi /etc/sudoers  # 修改新用户权限
+在用户名下面 ALL=(ALL:ALL) ALL  #这一步一定要千万小心
+sudo vi /etc/passwd    # 这一步修改终端bash
+修改sh为bash
+
+删除用户
+先注销，然后在另一个用户上 sudo userdel - r aiden
+
+练习5
+软件安装
+sudo apt install sl
+
+练习6
+ssh 服务
+ps -ef|grep "ssh"列出系统所有任务，检查有无ssh-agent客户端，没有的话要下载
+sudo apt install openssh-server 安装ssh服务
+ssu levi@192.168.100.5 #登录
+拷贝
+scp demo.py levi@192.168.100.5:/home/tarena/  复制py到以下路径
+
+练习7
+ssh密匙
+
+
+
+
+作业：
+1. 今天的命令操作 再写一遍
+2。 再创建一个用户，环境的实验

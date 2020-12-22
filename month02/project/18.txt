@@ -1,0 +1,54 @@
+git 使用：
+
+git init   初始化项目仓库
+
+开始写项目
+
+git add file1 file2 ...   加入到暂存记录
+git mv
+git rm
+
+git commit  -m "msg..."   记录内容存储到仓库区
+
+使用commit 版本的跳转
+
+回到过去： git log
+         git reset --hard HEAD^
+         git reset --hard commit_id
+
+去往将来： git reflog
+         git reset --hard commit_id
+
+大跨度的跳转记录重要节点：
+         git tag v1.0 -m 'xxx'
+
+
+分支： 协同
+
+git branch
+
+git branch Abby_dev
+
+git checkout Abby_dev
+
+增加文件--》随便写入
+add  commit 提交
+
+git checkout master
+
+git merge Abby_dev
+
+ctrl-o  回车  ctrl-x
+
+
+Github 的使用
+Git 获取代码 pull
+Git 上传代码 push
+
+
+作业： 1. github上面创建一个远程仓库
+         将一个本地的项目（学生管理  2048  聊天室）
+         上传到这个仓库
+
+      2. 预先设计一下 在线词典的思路
+

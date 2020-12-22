@@ -1,0 +1,46 @@
+练习1
+描述month01中的house_information_manager_system的main.py文件位置
+
+绝对路径：/Users/aiden_zcf/PycharmProjects/Tmooc/month01/house_information_manager_system/main.py
+
+进文件夹有空格的话，加双引号
+
+相对路径：../../month01/house_information_manager_system/main.py
+
+
+
+验证写的对不对：ls /User/aiden_zcf/PycharmProjects/Tmooc/month01/house_information_manager_system/main.py
+
+
+练习2
+
+ls: 查看在根下有etc文件夹，下的内容
+绝对路径： ls etc
+相对路径
+
+练习3
+在主目录下创建一个文件夹叫"无用"，在改文件夹下创建一个文件a.py，然后删除这个文件夹
+mkdir ~/无用
+touch ~/无用/a.py
+rm -r ~/无用
+任何命令都可以写路径
+
+练习4
+通配符
+在目录下创建文件 创建文件 file1.txt file_23.txt file2.txt 删除 file数字.txt 文件
+touch file1 file_23 file 2
+rm file?
+创建file_23 file2 file_a 删除 file_a file_23
+rm file_*
+
+练习5
+管道
+统计etc下有多少个文件
+ls /etc | wc - w
+
+练习6
+将第一阶段老师给的所有代码压缩为zip格式 phase_1.zip
+将自己写的代码压缩为bz2格式
+zip -r phase_01.zip ~/PycharmProjects/month01
+压缩生成的文件夹会在当前目录
+
