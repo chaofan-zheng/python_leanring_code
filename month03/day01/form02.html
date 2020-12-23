@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单控件的使用</title>
+</head>
+<!-- get 通过 -->
+<!-- ?username=eee&userpwd=e+e+e+e -->
+<!-- 查询字符串 key=value&key=value -->
+
+<!-- 使用post提交数据不会有查询字符串，更安全一些 -->
+<!-- get方式提交数据，将数据以查询字符串的形式拼接在地址之后发送给服务器（get是一个默认的方式)
+    缺点
+    1. 不安全
+    2. 浏览器URL输入框有大小限制（2kb）
+    3. 有格式限制 不能有一些特殊符号
+-->
+<!-- post方式提交数据 将数据放在请求主体一同发送给服务器 -->
+<!-- 绝大部分用post -->
+
+
+
+<body>
+    <form action="" method="post" enctype=""> 
+        <div>
+            <!-- 对于输入框而言，用户写什么，value就是什么，不用写value -->
+            姓名：<input type="text" name="username"><br>
+            密码：<input type="password" name="userpwd"><br>
+            <input type="submit">
+        </div>
+    </form>
+    <form action="" method="post" enctype=""> 
+        <!-- <label for="username">姓名:</label> 
+        <input type="text" name="username" id = "username"><br> -->
+
+        <!-- placeholder 只对输入文本框有用 -->
+        <input type="text" name="username" placeholder="姓名" maxlength="10"><br>  <!-- value属性可以突破这个maxlength的限制 -->
+        
+        <input type="password" name="userpwd" placeholder="密码"><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
