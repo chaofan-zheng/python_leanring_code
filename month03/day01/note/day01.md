@@ -56,7 +56,7 @@ open in browser
     <meta charset="utf-8">
     ```
 
-	- 同一个标签中可以添加若干组标签属性，使用空格间隔。例：
+	- 同一个标签中可以添加若干组标签属性，使用**空格**间隔。例：
 
     ```html
     <img src="lily.jpg" width="200px" height="200px">
@@ -152,6 +152,24 @@ open in browser
      <i>斜体标签</i>
      <u>下划线标签</u>
      ```
+    ```html
+    <!-- lorem*3生成三段假文 -->
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos impedit vitae unde nihil ipsa facere labore, dicta, aliquid laudantium autem omnis. Necessitatibus numquam sunt ut labore repudiandae repellat at suscipit!
+            Et repudiandae, id, magni enim blanditiis repellat, totam voluptate magnam at ab tenetur ipsa. Voluptas veritatis doloribus ad blanditiis voluptatem consectetur dolorem fugiat earum minima, nesciunt hic, minus neque porro?
+            Sequi esse mollitia accusantium! Provident dolor architecto, blanditiis repellendus dolores, harum pariatur quaerat, corporis eum accusantium assumenda! Maxime officia at inventore soluta architecto quo quam ipsum hic a, suscipit fuga.
+        </p>
+        <!-- p>lorem+tab 生成一个p标签，在p标签中生成一段假文 -->
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, hic libero molestias, ullam aliquam voluptas, molestiae amet error accusamus deleniti quam illum facere adipisci debitis. Sapiente nisi autem eaque voluptatibus.</p>
+        <!-- 生成3个p标签，每个p中都有一段假文 -->
+        <!-- p*3>lorem +tab -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis necessitatibus quis natus, provident et tenetur quam repellendus libero repellat voluptas eos cupiditate, nihil odit autem. Autem error nemo harum sed!</p>
+        <p>Placeat quisquam fugit ipsa ipsam laudantium perspiciatis! Reprehenderit unde quis aspernatur ipsum voluptates hic at perspiciatis eos voluptate, dolores aperiam? Impedit, ea? Facere, ratione? Voluptatibus quo voluptatem assumenda tempore minima.</p>
+        <p>Maiores laborum vero nemo veniam sit hic, id incidunt sint pariatur beatae tenetur exercitationem libero cumque modi consequatur quos! Earum, nobis rerum. Voluptatem suscipit possimus autem voluptas sequi, quis quasi?</p>
+    ```
+    
+    
+    
     - 格式标签：
      浏览器会忽略代码中的换行和空格，只显示为一个空格。想要实现页面中的换行，需要借助于换行标签。
      ```html
@@ -173,24 +191,55 @@ open in browser
      使用 &yen; 在页面中呈现人民币符号"￥"
     ```
     
+    ```html
+    <!-- 字符实体 想要显示<DAY01> -->
+        <h1>HTML5&lt;DAY01&gt;</h1>
+    
+    
+        <!-- 文本标签默认是不换行的 -->
+        <b>加粗的文本bold</b><br>
+        <strong>强调
+            的文本</strong>
+        <br>
+        <i>倾斜的文本      inclined</i>
+        <br>
+        <!-- 浏览器里面默认特点是，忽略空格和换行，要换行，必须得加<br>,也可以直接放里面-->
+        <u>带有下划线的文本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;underline<br></u>
+        <b><i>helloworld&nbsp;&nbsp;&nbsp;&nbsp; 既加粗又倾斜</i></b>
+        <hr>
+    
+            <!-- p>lorem*3 生成的带span span 可以对段落里面的文本特殊处理 -->
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab animi aliquid necessitatibus provident nostrum quam nam hic eaque recusandae tenetur dolorem nobis voluptatem sint dicta rem a, molestiae repudiandae minima.</span>
+                <span style="color: red;">Enim sunt reiciendis sequi natus eum alias ipsam et amet impedit neque modi nobis odit laudantium, illum optio accusamus placeat iusto quae adipisci provident doloribus. Ab esse nisi reprehenderit et?</span>
+                <span>Ipsam quia eligendi incidunt, sit error quisquam iusto illo cumque deserunt et officia similique recusandae cupiditate, ut aliquam commodi veniam, qui adipisci nam! Similique, ex sit provident eligendi cumque maiores!</span>
+            </p>
+    
+        <h6>版权所有&copy;Aiden</h6>
+        <h6>&yen;priceless</h6>
+    ```
+    
+    
+    
   - 容器标签
     常用于页面结构划分，结合CSS实现网页布局
-    
+
       - 通用属性: 就是每个标签都有的 
           - id（唯一）, name（可重复），style ，class（用于分组）
-    
+
        ```html
        <div id="top">页面顶部区域</div>
        <div id="main">页面主体区域</div>
        <div id="bottom">页面底部区域</div>
        ```
-    
+
   - 图片与超链接标签
     - 图片标签 <img src="">：用于在网页中插入一张图片。
       1. 属性 src 用于给出图片的URL，必填。
       
       2. 属性 width/height 用于设置图片尺寸，取像素值，默认按照图片的原始尺寸显示。
       
+
 3. 属性 title 用于设置图片标题，鼠标悬停在图片上时显示
    
       4. 属性 alt 用于设置图片加载失败后的提示文本
@@ -293,7 +342,7 @@ open in browser
     ```
      - 表单控件使用（重点）
      表单控件用于采集用户信息，可设置以下标签属性
-  - 只要用了表单控件，就必须用name，因为需要用来通知服务器数据是用来干什么的
+  - **只要用了表单控件，就必须用name，因为需要用来通知服务器数据是用来干什么的(要写name才能会有数据)，服务器会把name组成键值对，以默认method get的方式提交出去**
     
     |  属性名   |   取值  |
     | ---- | ---- |

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <style>
+        /* 群组选择器 选择多个页面内容，然后同意设置样式 */
+        h1,p,ul,li{
+            /* 一般来说都是在这里初始化页面样式 把原先的默认样式清除掉了 */
+            margin: 0%;
+            padding: 0;
+        }
+        /* 后代选择器 li和body是祖先和后代的关系 */
+        body li{
+            color: red;
+        }
+        /* 子带选择器 后代会包含子代 */
+        ul>li{
+            background-color: aquamarine;
+        }
+        #Navibar>li{
+            /* 导航栏当中的li的样式 */
+        }
+    </style>
+</head>
+<body>
+    <h1>复杂选择器演示</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis neque assumenda unde expedita aspernatur ratione est harum corporis excepturi repellat, natus, nemo recusandae ex sed nostrum quis ad adipisci! Commodi?</p>
+    <ul id="Navibar">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+</body>
+</html>

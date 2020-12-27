@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+    <style>
+        ul{
+            margin: 0;
+            /* border: 1px solid black; */
+            padding: 10px;
+            list-style: none;
+        }
+        li{
+            display: inline;
+            /* border: 1px solid black; */
+            /* padding 和 margin的区别在于 padding算background的一部分，然而margin不算，padding会变色，margin不会 */
+            padding:0px 10px;
+            margin: 0px 10px;
+        }
+        li.item:hover{
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+        }
+        li.difficulty{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class = "difficulty">难度：</li>
+        <li class="item">全部</li>
+        <li class="item">初级</li>
+        <li class="item">中级</li>
+        <li class="item">高级</li>
+    </ul>
+</body>
+</html>

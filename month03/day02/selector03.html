@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /* 超链接如果需要为四种状态分别设置样式,必须按照以下顺序书写 */
+        a:link{
+            color: red;
+        }
+        a:visited{
+            font-size: 30px;
+            color: seagreen;
+        }
+        a:hover{
+            color: orange;
+        }
+        a:active{
+            background-color: dodgerblue;
+        }
+        div{
+            /* 宽高 */
+            width: 200px;
+            height: 200px;
+            background-color: palegoldenrod;
+            /* 过度： 当样式发生改变时，不会马上完成变化，而是在指定的时间内完成样式改变 */
+            /* 鼠标移上去移下来都会发生变化 */
+            transition: all 1s; 
+        }
+        div:hover{
+            width: 100px;
+            height:100px;
+            background-color: palegreen;
+            /* 过度属性 */
+            /* transition: width 2s; */
+            cursor:pointer
+        }
+    </style>
+</head>
+<body>
+    <!-- 不写#的话会刷新页面 -->
+    <a href="#">hello</a>
+
+    <div></div>
+</body>
+</html>

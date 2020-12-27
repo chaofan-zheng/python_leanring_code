@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        总结：
+            对于select,checkbox,radio来说需要指定name和value值，name必须，不然不会传，有name无value，会传?answer=on 
+            submit 以form为单元进行数据提交 ?protocol=1&autologin=on
+     -->
+    <!-- ?answer=on 在没有写value的情况下-->
+    <!-- ?answer=B 在写了value的情况下-->
+    <form action="">
+        <input type="radio" value="A" name="answer">A
+        <input type="radio" value="B" name="answer">B
+        <input type="submit">
+    </form>
+    <!-- ?answer=A&answer=B -->
+    <form action="">
+        <input type="checkbox" value="A" name="answer">A
+        <input type="checkbox" value="B" name="answer">B
+        <input type="submit">
+    </form>
+    <!-- ?area=北京 -->
+    <form action="">
+        <!-- size 下拉菜单从下拉变成滚动 -->
+        <!-- multiple 多选 -->
+        <!-- selected 可以作为下拉菜单的默认选中 -->
+        <select name="area" id="" size = "4" multiple>
+            <option value="o">请选择</option>
+            <option value="北京" selected>北京</option>
+            <!-- 也可以把value写成特殊的值,跟数据库的id对应，比如说数据库的北京的id为101，value = "101" -->
+            <option value="上海">上海</option>
+            <option value="深圳">深圳</option>
+            <option value="杭州">杭州</option>
+            <option value="广州">广州</option>
+            <option value="西安">西安</option>
+        </select>
+        <input type="submit">
+        <br>
+    </form>
+    <!-- ?protocol=1&autologin=on -->
+    <form>
+        <!-- ?protocol=on -->
+        <input type="checkbox" name = "protocol" value="1">请阅读并同意协议
+        <!-- <input type="submit"> -->
+        <br>
+    <!-- </form> -->
+    <!-- <form> -->
+        <!-- checked 默认选中 -->
+        <input type="checkbox" checked name="autologin" value="1" >自动登录
+        <input type="submit" value="保存">
+        <!-- input 的value为按钮上的文字 -->
+        <br> 
+    </form>
+</body>
+</html>

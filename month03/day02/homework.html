@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homework</title>
+    <style>
+        /* div{
+            background-image: url(./imgs/img01-2.png);
+            background-repeat: no-repeat;
+        } */
+        div{
+            background-image: url(./imgs/img01-2.png);
+            background-repeat: no-repeat;
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+        }
+        /* 做页面操作的时候，用id比较好，可以快速定位。但是做样式的时候还是最好不用id，尽量用类的方式 */
+        /* 精灵图技术：小图标的显示方法：把大图拿过来，通过调整不同的位置来显示小图标 */
+        /* id 不可以用数字 */
+        div.a{
+            background-position-x: -50px;
+        }
+        div.b{
+            background-position-x: -25px;
+        }
+        div.c{
+            background-position-x: -75px;
+        }
+        div.d{
+            background-position-x: 0px;
+        }
+        div.e{
+            background-position-x: -100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="a" ></div><br><div class="b"></div><br><span>hello</span><div class="c"></div><div class="d"></div><div class="e"></div>
+
+</body>
+</html>

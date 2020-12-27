@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo01</title>
+    <!-- 内嵌样式 -->
+    <!-- <style>
+        /* css代码，注释都不一样了 */
+        h1{
+            color:yellowgreen;
+            background-color:blueviolet;
+            font-size: 60px;
+        }
+    </style> -->
+
+    <!-- 引用样式的内容也要写在head里面 -->
+    <link rel="stylesheet" href="demo.css">
+
+    <!-- 如果说内嵌的样式和引用的样式产生冲突，谁写在下面，就用谁的（覆盖），所以以后在开发过程中，应该把外部引用放在上面，因为引用的一般是别人的，需要有时候自定义去覆盖 -->
+
+</head>
+<body>
+    <h1>helloworld</h1>
+    <!-- 会找最近的h1 -->
+    <h1 style="font-size: 16px; background-color: coral;" >重写的h1</h1>
+    <b>这是一个普通的b标签</b>
+    <h1><b>继承h1的b标签</b></h1>
+</body>
+</html>
+
+<!-- 
+    总结 
+        可以在chrome的开发者工具当中，进行检查
+        最差的是直接写在标签里面
+        写项目的时候写在外面
+        做作业的时候可以写在内部
+ -->

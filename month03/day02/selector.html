@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <style>
+        /*  */
+        /*  */
+        h1{
+            color: red;
+        }
+        /* id 选择器 #+id值d 属性值匹配文档中惟一的元素  必须是唯一的*/
+        #className{
+            color:royalblue
+        }
+        /* 类选择器 .类名 可用于不同的标签，使用起来更加灵活*/
+        .myClass{
+            color:grey
+        }
+        .center{
+            /* 文字水平居中 */
+            text-align: center;
+            color: red;
+        }
+        /* 找到带有class=myclass的h1标签 */
+        h1.myClass{
+            background-color: yellowgreen;
+        }
+        h2.Supreme{
+            color: white;
+            background-color: red;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 小驼峰的方式，第一个字母小写，第二个字母大写 -->
+    <h1 class ="myClass" id = "className">这是一级标题</h1>
+    <h1>我们不一样</h1>
+    <!-- 拥有多个样式类 双引号里面写两个，空格隔开 后面的class会覆盖-->
+    <p class="myClass center">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non sunt accusantium sequi veritatis sit ea dolorum totam officia eveniet, porro nisi, et obcaecati, quasi dolore. Incidunt, minus! Non, nesciunt voluptatibus!
+    </p>
+    <i class="myClass">hello world</i>
+    <!-- 代码补全 h1.myclass 带有myclass 的 h1 标签 -->
+    <h1 class="myclass"></h1>
+    <!-- h1.myclass.center -->
+    <h1 class="myclass center"></h1>
+    <!-- h1#title.myclass.center -->
+    <h1 id="title" class="myclass center"></h1>
+
+    <h2 class="center Supreme">Supreme</h2>
+</body>
+</html>

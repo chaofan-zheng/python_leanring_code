@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <style>
+        #parent{
+            /* 为子元素的绝对定位做参照物 */
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            margin: 0 auto;
+        }
+        #parent>div{
+            /* 绝对定位 参照物 距离最近的，已经定位的 祖先元素
+            如果没有 参照窗口进行定位 */
+            /* 但是会脱离文档流 */
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* top: 200px;
+            left: 200px; 
+             */
+             /* 这样子最快 */
+             bottom: 0;
+             right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div></div>
+    </div>
+</body>
+</html>

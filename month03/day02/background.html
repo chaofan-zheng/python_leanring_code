@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景属性</title>
+    <style>
+        div{
+            width: 25px;
+            height: 25px;
+            /* 当div宽高小于图片宽度的时候，只会显示部分，当div宽高大于图片宽度，会默认重复显示背景图，知道铺满 */
+            background-color: black;
+            background-image: url(./imgs/img01-1.png);
+            background-repeat: no-repeat;
+            background-position-y: -25px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    
+</body>
+</html>

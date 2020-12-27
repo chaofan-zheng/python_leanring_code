@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位</title>
+    <style>
+        div{
+            /* 与margin的区别在于 margin会影响别人，relative position 不会 */
+            /* 相对定位 参照物 参照自身原本的位置 */
+            /* 不脱离文档流 就是该是行内元素就还是行内元素, 与之相对的是float */
+            /* 一般用于对位置的微调 */
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            top: 200px;
+            left:200px;
+        }
+        p{
+            width: 300px;
+            height: 200px;
+            background-color: blue;
+            
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    
+</body>
+</html>

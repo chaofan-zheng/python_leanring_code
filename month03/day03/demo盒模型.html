@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容框</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            /* overflow: hidden; */
+            overflow: hidden;
+            border: 5px solid black;
+        }
+        /* p标签的margin外边距默认为16px div默认为0*/
+        p{ 
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 内容放不下了会出去，因为浏览器设定的文字优先级特别高 -->
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem officia ab temporibus, autem natus voluptatem! At id nam fuga beatae culpa repellat doloribus cupiditate, tempora quaerat quas error reprehenderit rerum!
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto possimus ut nihil, et impedit praesentium vero iure delectus soluta. Sint laboriosam vero facere odit nesciunt soluta sequi animi. Neque, expedita!
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum, dignissimos facere quasi sequi laborum ipsa illo corrupti vel vero maxime fugit praesentium quibusdam sapiente dolores distinctio autem tenetur ad?
+    </div>
+    <p></p>
+</body>
+</html>

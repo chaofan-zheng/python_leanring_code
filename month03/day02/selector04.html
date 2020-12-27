@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器的优先级</title>
+    <style>
+        /* 优先级 */
+        /* 行内样式>id选择器>伪（类）选择器>标签选择器 */
+        /* 只有在优先级相同时，才会有就近原则 */
+        div{
+            /* 1 */
+            color: blueviolet;
+        }
+        #div01{
+            /* 100 */
+            color: green;
+        }
+        .myclass{
+            /* 10 */
+            color:yellowgreen
+        }
+        /* 这样写的优先级只有1+1=2 */
+         /* div>div{
+            color:pink
+            } */
+        #div01>div{
+            /* 100+1 */
+            color:pink
+        }
+        /* 不可以这样 */
+        /* div:hover{
+            color:pink
+        } */
+        #div01:hover{
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="div01" class="myclass">
+        hello world
+        <!-- 自己没有颜色才会用父元素的 -->
+        <div>这是内部的子元素div</div>
+    </div>
+</body>
+</html>

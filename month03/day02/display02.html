@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            /* 行内块元素 可以设置宽高，也可以一行显示 */
+            display: inline-block;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+            /* 隐藏元素 */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="red"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+    <!-- 空白的缝隙 都是回车换行导致的，因为浏览器不论是多少个换行，多少个空格，都会按照一个空格来显示 -->
+    <span>hello</span>
+    <span>world</span>
+</body>
+</html>

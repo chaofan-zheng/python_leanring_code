@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 5px solid red;
+            border-bottom: 10px dotted black ;
+            border-right: dashed;
+            /* 每一条边都是一个梯形 */
+        }
+        .myclass{
+            width: 100;
+            height: 100;
+            /* border: 50px solid red; */
+            border: 50px solid red;
+            border-top-color: blue;
+            /* 50% 是一个特殊值，是把边框变成圆形 */
+            /* border-radius:50% ; */
+            /* 赋值的规律按照顺时针走 */
+            border-radius: 10px 20px 40px 80px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="myclass">xxx</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        #parent>div{
+            width: 200px;
+            height: 200px;
+            /* float: left; */
+        }
+        .red{
+            background-color: red;
+            /* float: left; 蓝色的不见了 */
+            /* 写float的时候能够取消了默认的布局方案 */
+            float: left;
+        }
+        .blue{
+            background-color: blue;
+            /* float: left;   绿色的不见了重叠了，只不过被红色的给盖住了而已 */
+            float: right;
+        }
+        .green{
+            background-color: green;
+            float: left;
+        }
+        span{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            float: left;
+            /* 元素设置浮动之后，脱离默认的布局方案，
+            span就是脱离了行内元素，变得可以设置宽高，元素的大小由盒模型属性决定。块元素不再独占一行 */
+        }
+        #parent{
+            border: 5px solid orange;
+            background-color: papayawhip;
+            /* 能看到边框，其他什么都看不见 */
+            /* 因为父元素还是默认的布局方案 */
+            /* float: left; */
+            height: 200px;
+            
+        }
+        p{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div class="red"></div>
+        <div class="blue"></div>
+        <div class="green"></div>
+        <span></span>
+    </div>
+    <p></p>
+</body>
+</html>
