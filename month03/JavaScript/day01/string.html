@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版字符串</title>
+</head>
+<body>
+     <script>
+        //  接受用户输入的用户名
+        var username = prompt("请输入用户名");
+        console.log(username);
+
+        var gift = prompt("请输入礼物")
+        //  将用户名拼接成 欢迎XXX的方式弹窗显示
+        // alert("欢迎"+username+"进入直播间")
+        // alert("感谢"+username+"送的"+gift+"🚀")
+        alert(`感谢${username}送的${gift}`)
+     </script>
+</body>
+</html>

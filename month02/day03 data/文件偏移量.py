@@ -5,7 +5,7 @@
 file = open("file.txt", "wb+")
 
 file.write("2020-11-30".encode())
-file.seek(8,0)
+file.seek(-2,1)
 file.write("28".encode())
 file.seek(0)
 date = file.read()

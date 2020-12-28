@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转换成数值类型</title>
+</head>
+<body>
+    <script>
+        Number('123abc') //NaN
+        typeof NaN   //number
+        Number(undefined)  //NaN
+        Number(null)  //0
+        isNaN("123abc") //true
+        isNaN("123")  // false
+        Number(true)  //1
+        Number(false)  //0
+        Number("0x35")  //53
+
+
+        parseInt(123.456) //123
+        parseInt('abc123') //NaN
+
+        parseFloat("abc123") //NaN
+        parseFloat("123abc") //123
+        parseFloat("123.456") //123.456
+    </script>
+</body>
+</html>
