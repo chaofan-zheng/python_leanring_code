@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=10;
+        function func(){
+            var a=1;  //此时的a为
+            console.log(a);
+        };
+        func();
+        console.log(a);
+        // 结果为1和10
+        // 如果去掉var，就会是1，1 用的是全局变量
+
+    // 与python相似
+// a = 10
+// def func():
+//     global a
+//     a = 1
+//     print(a)
+// func()
+// print(a)
+// 写global结果为1，1，不写global结果为1，10
+
+var a=10;
+function fun(a){
+    a++;
+    console.log(a); //11
+}
+fun(a)
+console.log(a) //10
+    </script>
+</body>
+</html>

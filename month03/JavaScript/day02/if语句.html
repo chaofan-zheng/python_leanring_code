@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 语句</title>
+</head>
+<body>
+    <script>
+        // var a=10,b=20;
+        // if (a>b){
+        //     // 条件满足时执行的代码
+        //     alert('a比b大')
+        // }
+        // else{
+        //     // 条件不满足时执行的代码
+        //     alert('b比a大')
+        // }
+
+        // 注意 这里不可以直接这样写 python是可以这样写的
+        // var score = prompt('请输入成绩')
+        // if (60<=score&&score<70){
+        //     alert('合格')
+        // }
+        // else if(70<=score&&score<80){
+        //     alert('中等')
+        // }
+        // else if(80<=score<90){
+        //     alert('良好')
+        // }
+        // else if(90<=score<=100){
+        //     alert('优秀')
+        // }
+        // else{
+        //     alert('不合格')
+        // }
+
+        // 练习  接收用户输入的月份 判断这个月份有多少天
+        // 2月默认28天
+        while (1){
+        var month = prompt('请输入月份');
+        if (month ==1  || month==3 ||month==5||month==7||month==8||month==10||month==12){
+            alert('31天')
+        }else if(month == 4 || month == 6 || month == 9|| month == 11){
+            alert('30天')
+        }else if(month == 2){
+            alert('28天')
+        }else{
+            alert('请输入正确的月数')
+        }
+    }
+
+    </script>
+    
+</body>
+</html>

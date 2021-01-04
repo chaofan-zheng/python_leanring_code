@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分离事件绑定</title>
+</head>
+<body>
+    <button id ='btn'>click me</button>
+    <script>
+        // 声明提前 通过关键字声明的变量或函数会提前到当前作用域的最上方。
+        // 如果是变量提前 只提前变量名，内容留在原本位置
+        // 这个时候如果
+        // console.log(func01);console.log(func02)
+        //  第一个能会出函数体，第二个会出undefinded
+
+        // 要做的第一件事情，查找页面元素，第二件事，绑定事件
+        // 查找页面元素
+        var btn = document.getElementById('btn');
+        console.log(btn); // <button id ='btn'onclick="">click me</button>
+        // 通过document查找到的对象，称之为dom对象
+        console.log(btn.id); // btn
+
+        function func01(){
+            var uname = prompt('请输入名字');
+            alert(`hello ${uname}`)
+        };
+
+        // 匿名函数 执行完以后函数就不会保存，就会销毁
+        var func02 = function(){
+            var uname = prompt('请输入名字');
+            alert(`hello ${uname}`)
+        }
+
+        // 绑定事件
+        // 这里就不用双引号
+        btn.onclick=func01();
+
+    </script>
+</body>
+</html>

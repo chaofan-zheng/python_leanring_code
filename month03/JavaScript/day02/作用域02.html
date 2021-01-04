@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+</head>
+<body>
+    <script>
+        function fun(){
+            return function(){
+                console.log('hello')
+            }
+        }
+        // fun()()  这样也可以
+
+        // 这样写好看点
+        var inner = fun()
+        inner();
+
+        // 这原理上也可以
+        // function func(){
+        //     function inner(){
+        //         console.log('hello')
+        //     }
+        //     return inner
+        // }
+        // func()() 
+
+
+        
+        // 闭包
+        // 需要一个功能，一个关键值(对功能非常重要的一个值）可能会发生变化，但是功能之间都是独立的
+        function func01(x){
+            return function(y){
+                console.log(x+y)
+            }
+        }
+
+        var add10 = func01(10);
+        add10(5)  //15
+        add10(15)  //25
+
+        var add20 = func01(20);
+        add20(5)  //25
+        add20(15) //35
+
+    </script>
+</body>
+</html>

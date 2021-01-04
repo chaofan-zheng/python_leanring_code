@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 循环</title>
+</head>
+<body>
+    <script>
+        // 打印1～20之间的偶数
+        var i=1;
+        while(i<21){
+            if(i%2==0){
+                console.log(i)
+            }
+            i++
+        }
+
+        // 接受用户输入的用户名 如果用户名不是老王就继续，直到是老王为止
+        while(true){
+            var uname = prompt('请输入用户名');
+            if (uname=="老王"){
+                break;
+            }
+        }
+        // 比while break的结构要稍微好一些
+        // do-while 先执行do中的代码块，然后判断循环条件，如果条件满足就继续执行，条件不满足就结【束
+        do{
+            var uname = prompt('请输入用户名')
+        }
+        while(uname!='老王');
+
+    </script>
+</body>
+</html>

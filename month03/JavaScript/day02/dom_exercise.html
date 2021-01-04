@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id = "text" type="text" >
+    <button id = "btn">显示</button>
+    <h1 id="show">xxx</h1>
+    <!-- 要做得事情：文本框输入内容，点显示，在h1中显示出来 -->
+    <script>
+        // 1. 查找元素
+        var text = document.getElementById('text');
+        var btn = document.getElementById('btn');
+        var show = document.getElementById('show');
+        // 对于用id来说，可以直接查找，不用写getbyid
+        // console.log(btn)       <button id = "btn">显示</button>
+        // 2. 写功能
+        // 当按钮被点击时，把内容放在h1中显示
+        btn.onclick=function(){
+            // 对于 输入文本框来说，没有别的
+            var content = text.value
+            show.innerText = content
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比较运算符</title>
+</head>
+<body>
+    <script>
+        console.log('abc'>'acd' )  //false
+        console.log('18'>10 ) //true 一律转换成数字进行比较，不能转换成数字的，都为NaN，其结果一定为false
+        console.log('abc'>10) //false
+        console.log('abc'<10) //false
+        // 只要看到NaN，就一定为false
+        console.log('18'==18) //true
+        console.log('18'===18) //false
+        // 全等 数值和类型都要相等
+        console.log(1>null) //true
+        console.log(null==null) //true
+        console.log(null==undefined) //true
+        console.log(null===undefined) //false
+        console.log(null==0) //false
+
+        // 输入年份，判断是不是闰年
+        // 能被4整除，同时不能被100整除  或者能被400整除
+        var year = prompt('请输入年份');
+        var result = year%4==0 && year%100!=0 || year%400 ==0;
+        console.log(result)
+
+        var a = 10;
+        var b = 20;
+        console.log(a>b&&b>a) //false      and 一假俱假  or 一真俱真
+
+        // 短路逻辑：如果说前面的部分已经能够得到结果，程序就不会执行后续的代码
+        // false && xxx
+        // true || xxx
+        var a = 10;
+        var b = 20;
+        console.log(a>b&&kjhasfkjhaskjfhas) //false  并不会报错
+
+        // 用短路逻辑的方式去执行简单的判断
+        // 如果年龄不满18 弹窗提示 禁止访问
+        // 方法一
+        var age = prompt("请输入年龄");
+        age <18 && alert('禁止访问')
+
+        // 方法二
+        var age = prompt("请输入年龄");
+        age >18 || alert('禁止访问')
+
+        // 三目运算符
+        // 表达式1 ? 表达式2 : 表达式3;
+        // 如果1为true，执行2。 如果1为false，执行3
+        var a = 10;
+        var b = 20;
+        a>b?console.log('a比b大'):console.log('b比a大')
+
+    </script>
+</body>
+</html>

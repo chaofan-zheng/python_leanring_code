@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div>hello</div> -->
+    <p>hello</p>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        var $div =$('<div>hello</div>'); 
+        $('body').append($div)
+        // var $div =$('<div>hello</div>'); 同一个页面对象只能出现一次
+        var $div =$('<div>hello</div>'); 
+        $('p').after($div)
+
+        $('div').css('color','red').css('font-size','30px').css('font-weight','bold').css('text-align','center')
+        // 这样子写麻烦
+        $('p').css({
+            'color':'blue',
+            'text-align':'center'
+        })
+        // 对于大规模的样式的部署 还是会放到css文件里，这里用于部分的调整
+    </script>
+</body>
+</html>

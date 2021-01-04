@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <body>
+    <script>
+        // 根据用户输入的邮箱，解析出用户名和服务商
+        // cz2656@columbia.edu
+        // cz2656   columbia.edu
+        var strEmail = prompt('请输入邮箱');
+        var myIndex = strEmail.indexOf('@');
+        var uname = strEmail.substring(0,myIndex);
+        var server = strEmail.substring(myIndex+1,strEmail.length);
+        console.log(`用户名：${uname}，服务商：${server}`);
+        var obj01 = document.getElementsByClassName('uname');
+        var obj02 = document.getElementsByClassName('server');
+        console.log(obj01,obj02)
+        obj01[0].innerHTML = uname
+        obj02[0].innerHTML = server
+    </script>
+    <h1 class="uname">hi</h1>
+    <h1 class="server">hi</h1>
+
+</body> -->
+<body>
+    <input type="text" id ='text'>
+    <button id = 'btn'>解析</button>
+    <h1 id='show'>xx</h1>
+    <script>
+        var text = document.getElementById('text');
+        var btn = document.getElementById('btn');
+        var show = document.getElementById('show');
+
+        // btn.onclick= function (){
+        //     var content = text.value;
+        //     var myIndex = content.indexOf('@');
+        //     var uname = content.substring(0,myIndex);
+        //     var server = content.substring(myIndex+1,content.length);
+        //     show.innerText = `用户名：${uname}, 服务商:${server}`
+        // }
+
+        function analyze (){
+            var content = text.value;
+            var myIndex = content.indexOf('@');
+            var uname = content.substring(0,myIndex);
+            var server = content.substring(myIndex+1,content.length);
+            show.innerText = `用户名：${uname}, 服务商:${server}`
+        }
+
+        btn.onclick = analyze();
+        
+    </script>
+</body>
+</html>

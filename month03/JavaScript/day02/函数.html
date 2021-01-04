@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <button onclick="func('qtx')">click me</button>
+    <script>
+        // uname = prompt('请输入姓名')
+        function func(uname){
+            alert(`hello ${uname}`)
+        }
+        // 如果不写uname，不会报错 会直接hello undefined
+        // 所以说以后写的时候 如果报了undefined，有可能没有传值
+
+        // 隐函数,没有名字的函数
+        // 因为普通函数每次调用完了以后，代码还会在内存里存着，所以如果用的多了可能不太好。
+        // 但是隐函数只会执行一次，执行后就销毁
+        (function(){
+            alert('hello world')
+        })()
+
+
+        // 调用匿名函数的同时，往里面传参数
+        (function(uname){
+            alert(`hello ${uname}`)
+        })('qtx');
+
+        var res =(function(x,y){
+            console.log(x+y)
+        })(10,20);
+        console.log(res);
+
+
+        // 对函数的使用的另外一种方法
+        var func02 = function(x,y){
+            console.log(x+y)
+        };
+        console.log(func) ;
+        func02(10,20);
+
+    </script>
+</body>
+</html>

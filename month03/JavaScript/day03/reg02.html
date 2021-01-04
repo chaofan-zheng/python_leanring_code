@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'this is a test string';
+        var reg = /is/ig;
+        var reg2 = new RegExp('this','gi');
+
+        console.log(str.match(reg)); // 数组，存放查找结果 如果只有一个的话就会包含索引等详细信息，如果有多个 就是["is", "is"]
+        var res = str.replace(reg,'IS');
+        console.log(res)//hIS IS a test string
+    </script>
+</body>
+</html>

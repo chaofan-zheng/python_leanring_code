@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height:200px;
+        background-color: #ffbb33;
+    }
+</style>
+<body>
+    <div></div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+         $('div').animate({
+            'border-radius':'50%',
+            'margin-left':'300px',
+            // 'bacground-color':'#000000'
+        },1500,function(){
+            $('div').animate({
+            'border-radius':'0',
+            'margin-left':'0',
+            },1500)
+        })
+    </script>
+</body>
+</html>

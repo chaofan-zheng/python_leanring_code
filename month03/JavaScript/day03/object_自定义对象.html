@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义对象</title>
+</head>
+<body>
+    <!-- JS本身不是一个面向对象的语言 -->
+    <!-- 这些对象都是通过一些函数实现的 -->
+    <script>
+        // 构建对象
+        var obj = {
+            uname:'qtx',
+            age:18
+        };
+        // 构造函数，（首字母大写）
+        function Dog(){
+            this.color = 'yellow'
+        }
+
+        var dog1 = new Dog();
+
+        console.log(dog1.color)
+        console.log(obj)
+        console.log(obj.uname)
+
+
+        var json ={
+            'uname':'qtx',
+            'age':18
+        }
+        console.log(obj.name,json.uname);  // undefinded qtx
+        console.log(obj['uname'],json['uname']);  //qtx qtx
+
+        // 遍历对象
+        // 遍历完得到的属性都是字符串
+        for(var i in obj){
+            console.log(i);
+            console.log(obj.i) //这么取是undefinded
+            console.log(obj[i]);  //这样是可以的
+        }
+        // 如果索引是字符串，那么必须用中括号的形式
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串常用方法</title>
+</head>
+<body>
+    <script>
+        var str = 'this is a test string';
+        var uppStr = str.toUpperCase();
+        console.log(uppStr,str); // THIS IS A TEST STRING this is a test string
+        console.log(str.charAt(10)); // t
+        console.log(str.charCodeAt(10)); // 116
+
+        var res = str.indexOf('test')
+        console.log(res) //10
+
+        var res = str.indexOf('s')
+        console.log(res) // 3 只找第一个，找不到返回-1
+
+
+        var arr02 = ['hello',1232,true,'world'];
+        // 练习，接受用户输入的内容，判断内容是否在数组中。
+            // while(1){
+            // var key = prompt('请输入内容'); 
+            // var res = '0'  
+            // for (var i =0;i<arr02.length;i++){
+            //     if(key == String(arr02[i])){
+            //         res = '1';
+            //         break;
+            //     }1
+            // }
+            // if (res=='1'){
+            //     alert('yes');
+            // }else{
+            //     alert('no');}
+        // }
+
+        // 用index可以不用循环，降低空间复杂度
+        var key = prompt('请输入内容'); 
+        // var str02 = arr02.toString();
+        // console.log(str02) // hello,1232,true,world
+        // 用这种方法，不输入，输入1都会得到yes
+
+        // 将数组转成字符串，将字符串按逗号分隔，结果还是数组，只不过数组中的内容全部为字符串类型。
+        // 这种方法比较严谨
+        var str02 = arr02.join().split(',');
+        console.log(str02);//["hello", "1232", "true", "world"]
+
+        if (str02.indexOf(key)!= -1){
+            alert('yes')
+        }
+        else{
+            alert('no')
+        }
+
+
+    </script>
+</body>
+</html>

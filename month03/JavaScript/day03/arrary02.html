@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5,6,7,8]
+        arr.push(9,10)
+        var lon = arr.push(11,[12,13])
+        console.log(lon,arr);  // 12  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, Array(2)]
+        var res = arr.pop(); //删除末尾元素
+        console.log(res,arr);  // [12,13]
+
+        // 从索引值1的位置开始，删除2个元素
+        var res = arr.splice(1,2);
+        console.log(res,arr);
+        // 从索引值为1的位置开始，删除2个元素 在原本位置添加3，4
+        var res =arr.splice(1,2,3,4);
+
+        //toString
+        var res = arr.toString();
+        console.log(res,arr);
+
+        //join 把数组变成字符串
+        var dateArr = [2020,12,30];
+        var res = dateArr.join('-');
+        console,log(res,arr);
+
+        arr.reverse();
+        console.log(arr);
+
+        // 不仅数字能排，字符串也能排列，默认按照Unicode编码升序排列，不是按照数值，
+        arr=[11,413,22222222,9976,'asdsa','zasf']
+        arr.sort();
+        console.log(arr);
+
+        arr.sort(function(a,b){
+            //如果返回值>0就交换ab的位置
+            return a-b //从小到大排序
+        })
+        console.log(arr);
+
+
+
+
+    </script>
+</body>
+</html>

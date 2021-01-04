@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: hotpink;
+        }
+        .item{
+            display: inline;
+            list-style-type: none;
+        }
+        .first{
+            display: inline;
+            list-style-type: none;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="first">难度:</li>
+        <li class="item">全部</li>
+        <li class="item">初级</li>
+        <li class="item">中级</li>
+        <li class="item">高级</li>
+    </ul>
+    <button id = 'btn'>切换样式</button>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $('.item').click(function(){
+            // 去掉其他元素的active
+            // 方法一
+            $('.active').removeClass('active');
+            // this.className='item active'  功能可以实现，但是这么写不好
+            $(this).addClass('active');
+            //当前元素添加class active 其余兄弟元素删除class active
+            // 方法二  第一个addClass以后会返回当前对象
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+
+        // 切换样式
+        $('#btn').click(function(){
+            $('.item').toggleClass('active')
+        })
+
+
+    </script>
+
+</body>
+</html>

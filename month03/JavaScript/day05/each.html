@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+    </ul>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        var i = 1
+        $('li').each(function(index,obj){
+            console.log(index,obj)
+            obj.innerHTML=`${i++}`
+        })
+        // index 表示当前元素的索引值
+        // obj表示当前页面元素，是原生对象（dom），不是jquery对象
+
+        var arr=['giao','giaogiao','giaogiaogiao']
+        $.each(arr,function(index,obj){
+            obj+="!!!!!"
+            console.log(index,obj)
+        })
+    </script>
+</body>
+</html>

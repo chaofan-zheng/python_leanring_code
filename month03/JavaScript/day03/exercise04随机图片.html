@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./imgs/bk0-8.jpg" alt="图片无法加载"></li>
+        <li><img src="./imgs/bk1-8.jpg" alt="图片无法加载"></li>
+        <li><img src="./imgs/bk2-8.jpg" alt="图片无法加载"></li>
+        <li><img src="./imgs/bk3-8.jpg" alt="图片无法加载"></li>
+    </ul>
+    <script>
+        // 随机生成图片路径，替换页面中元素的src 要求图片不重复
+        // 生成0-9之间的随机数
+        var imgs = document.getElementsByTagName('img');
+        var arr = [] // 通过数组保存随机数
+        while(arr.length<4){
+            num = Math.floor(Math.random()*10);
+            if (arr.indexOf(num) == -1){
+                arr.push(num)
+            }
+            continue;
+        }
+        for (i=0;i<4;i++){
+            imgs[i].src = `./imgs/bk${arr[i]}-8.jpg`
+        }
+        console.log(arr)
+
+        // `./imgs/bk${num}-8.jpg`
+        // imgs[0].scr = "....."
+
+    </script>
+</body>
+</html>

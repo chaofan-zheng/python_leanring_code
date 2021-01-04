@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作</title>
+</head>
+<body>
+    <ul>
+        <li class="item">aaaaa</li>
+        <li class="item">bbbbb</li>
+        <li class="item">ccccc</li>
+        <li class="item">ddddd</li>
+    </ul>
+    <script>
+        // 通过标签名查找元素
+        // var lis = document.getElementsByTagName('li');
+        // console.log(lis); //页面元素的集合
+        // // 获取单独的页面元素
+        // console.log(lis[0])   //dom对象
+        // // 遍历页面元素
+        // // length 是页面元素集合的一个属性 在console里可以查看到
+        // for (var i =0; i<lis.length;i++){
+        //     console.log(lis[i]);
+        // }
+
+        var lis = document.getElementsByClassName("item");
+        for (var i =0; i<lis.length; i++){
+            console.log(lis[i]);
+            console.log(lis[i].innerHTML)
+        }
+
+    </script>  
+</body>
+</html>

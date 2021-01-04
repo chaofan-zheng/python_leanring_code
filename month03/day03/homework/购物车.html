@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <style>
+        .parent{
+            height: 50px;
+            width: 160px;
+            position: relative;
+            border: 1px solid #aaa;
+        }
+        .parent>span{
+            color: #333333;
+            /* 
+            height: 50px;
+            width: 160px;
+            top: 50%; 
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -80px; 
+             */
+            /* 这里不能这样子写，他这个会导致回到原位子，因为这样子的原理是margin为实体内容的一半，这样指定宽度了就没什么意义了 */
+        }
+        /* transform 的百分比是按照自身大小的 */
+        span.text{
+            position: absolute;
+             /* 方法一 */
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        span.fh{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translate(0,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <span class="text">我的购物车</span>
+        <i></i>
+        <span class="fh"> > </span>
+    </div>
+</body>
+</html>

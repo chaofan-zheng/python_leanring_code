@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num =Math.random();
+        console.log(num);
+
+        // 0~3 之间的随机整数
+        // var num02 = Math.round(num * 3);  // 这个0和3 出现概率会比较少
+        var num02 = Math.floor(num * 4); // 均匀的
+        console.log(num02);
+
+        // 0～n之间的随机整数 
+        // console.log(Math.floor(num*(n+1)));
+
+        //x,y之间
+        // console.log(Math.floor(num*(y-x+1))+x);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <h1>hello</h1>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+    <script src="../js/jquery.min.js"></script>
+
+    <script>
+        // 原先方法
+        // var lis = document.getElementsByTagName('li');
+        // for (var i =0;i<lis.length;i++){
+        //     lis[i].onclick = function(){
+        //         alert('hello')
+        //     }
+        // }
+
+        var lis = $('li')
+        console.log(lis) //m.fn.init(3) [li, li, li, prevObject: m.fn.init(1), context: document, selector: "li"]
+        // jquery 中将事件绑定的属性封装成方法
+        lis.click(function(){
+            alert('hello jquery')
+        })
+
+        //兄弟元素
+        console.log($('h1+li'))//m.fn.init [li, prevObject: m.fn.init(1), context: document, selector: "h1+li"]  必须相邻的 第一个满足条件的，不相邻的不行
+        console.log($('h1+p'))//m.fn.init [prevObject: m.fn.init(1), context: document, selector: "h1+p"]
+
+        $('li:last').css('color','#333333');
+        $('li:first').css('color','blue');
+
+        // 练习 使用过滤选择器匹配
+        $('li:eq(3)').css('color','red');
+        $('li:lt(2)').css('color','green');
+        $('li:not(li:last)').css('font-size','40px');
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="../day03/imgs/bk3-8.jpg" alt="">
+    </div>
+    <button id="btn1">隐藏</button>
+    <button id="btn2">下拉</button>
+    <button id="btn3">淡入</button>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        //  判断按钮上的文字，隐藏为隐藏图片，将按钮文字变成显示
+        $('#btn1').click(function(){
+            if($('#btn1').html()=='隐藏'){
+                $('img').hide(1500,function(){$('#btn1').html('显示')}) // 单位为毫秒，1500ms = 1.5s
+            }
+            else{
+                $('img').show(1500,function(){$('#btn1').html('隐藏')}) // 单位为毫秒，1500ms = 1.5s
+            }
+        })
+        $('#btn2').click(function(){
+            if ($('#btn1').html()=='显示'){
+                $('img').slideDown(1500,function(){$('#btn1').html('隐藏')})
+            }
+        })
+
+        $('#btn3').click(function(){
+            if ($('#btn1').html()=='显示'){
+                $('img').fadeIn(1500,function(){$('#btn1').html('隐藏')})
+            }
+        })
+        //问题在于，在动画执行的过程中，文字会修改，功能也会修改，会印象体验
+    </script>
+</body>
+</html>
