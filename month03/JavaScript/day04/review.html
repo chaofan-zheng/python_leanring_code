@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'hello';
+        var reg = /l/ig;
+        var reg2=/l/i;
+        // 又g和没g的区别
+        console.log(reg.test(str)) // true
+        console.log(reg.test(str)) // true
+        console.log(reg.test(str)) // false
+        console.log(reg.test(str)) // true 又重头开始又找到了
+        console.log(reg2.test(str)) // true
+        console.log(reg2.test(str)) // true
+        console.log(reg2.test(str)) // true 
+        // 可以来修改lastIndex=0就都可以了
+    </script>
+</body>
+</html>

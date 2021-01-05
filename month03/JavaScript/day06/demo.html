@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        window.onload=function(){
+            // 文档加载完毕后执行的代码
+            // onlaod只能写一次，要是在文档中写多次，只能执行最后一次（覆盖）
+            $('#btn').on('click',function(){
+                $('body').prepend(`<h1>JS生成的h1标签</h1>`)
+            })
+        
+
+        //可以执行多次，并且不会发生覆盖
+        // //语法一 
+        // $(document).ready(function (){
+        // //文档加载完毕后执行
+        // })
+        // //语法二 
+        // $().ready(function (){
+        // //文档加载完毕后执行
+        // })
+        // //语法三 
+        // $(function(){
+        // //文档加载完毕后执行
+        // })
+
+
+        // $('h1').click(function(){
+        //     console.log('hello')
+        //     $(this).css('color','red')
+        // })
+        // 这样写的话 页面里面还没有h1标签，所以跟本绑定不到click事件。可以改成onclick方便一些
+        
+        // 可以考虑把时间绑定给页面中已经存在的父元素，为父元素添加事件，同时指定子元素的选择器，当父元素触发事件时，会检查事件触发的元素，如果是指定的子元素出发的，就会执行功能，如果不是就不执行。
+        $('body').on('click','h1',function(){
+            console.log('hello')
+            $(this).css('color','red')
+        })
+        // 通过h1执行功能
+        
+    }
+
+    </script>
+</head>
+<body>
+    <button id="btn">添加元素</button>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        // $('#btn').on('click',function(){
+        //     $('body').prepend(`<h1>JS生成的h1标签</h1>`)
+        // })
+        // 这个不能写在开头，因为写在head部分找#btn的时候就会找不着，就不能绑定时间
+        $(function(){
+            console.log('这是最后执行的代码')
+        })
+    </script>
+</body>
+</html>

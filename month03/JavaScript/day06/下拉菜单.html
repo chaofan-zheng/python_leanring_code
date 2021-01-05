@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>省份：</span>
+    <select name="" id="province">
+        <option value="0">请选择</option>
+    </select>
+    <span>城市：</span>
+    <select name="" id="city">
+        <option value="0">请选择</option>
+    </select>
+    <span>地区：</span>
+    <select name="" id="area">
+        <option value="0">请选择</option>
+    </select>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        // 以后开发 页面向服务器请求数据，服务器获取请求，查询数据库，将结果响应给页面
+        // 之后是python从服务器获得的这样的数据结构
+        var provinceArr = [
+            {
+                'cityId': 1001, 'cityName': '北京',
+                'area': [
+                    { 'areaId': 10011, 'areaName': '西城' },
+                    { 'areaId': 10012, 'areaName': '东城' }
+                ]
+            },
+            {
+                'cityId': 1002, 'cityName': '浙江',
+                'area': [
+                    { 'areaId': 10021, 'areaName': '杭州' },
+                    { 'areaId': 10022, 'areaName': '宁波' }
+                ]
+            },
+
+        ];
+
+        $.each(cityArr, function (i, o) {
+            $('#province').append(
+                $(`<option value='${o.cityId}'>${o.cityName}</option>`)
+            )
+        });
+        $('#province').on('change', function () {
+            // 重置地区下拉菜单，只保留请选择选项
+            // 方法一
+            // $('#city>option').remove()
+            // $('#city').append($(`<option value="">请选择</option>`))
+            // 方法二
+            console.log($('#city').html());//<option value="">请选择</option><option value="10011">西城</option><option value="10012">东城</option> select 里面的html的内容
+            $('#city').html($(`<option value="">请选择</option>`));
+
+
+            $.each(cityArr, function (i, o) {
+                if(o.cityId==$('#province').val()){
+                    $.each(o.area,function(index,object){
+                        $('#city').append(
+                            $(`<option value='${object.areaId}'>${object.areaName}</option>`)
+                        )
+                    })
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

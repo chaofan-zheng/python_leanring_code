@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="city">
+        <option value="">请选择</option>
+    </select>
+    <select name="" id="area">
+        <option value="">请选择</option>
+    </select>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        var cityObj = { 'cityId': [1001, 1002, 1003, 1004], 'cityName': ['北京', '上海', '浙江', '广州'] };
+        // var $opt = $(`<o(ption value="1001">${cityObj.cityName}</option>`);
+
+        // for (i=0;i<cityObj.cityId.length;i++){
+        //     $('#city').append($(`<option value="${cityObj.cityId[i]}">${cityObj.cityName[i]}</option>`));
+        // }
+
+        // 以后不会用这种结构的
+        
+        var cityArr = [
+            { 'cityId': '1001', 'cityName': '北京' },
+            { 'cityId': '1002', 'cityName': '上海' },
+            { 'cityId': '1003', 'cityName': '浙江' },
+            { 'cityId': '1004', 'cityName': '广州' },
+        ]
+        var beijingArr = [
+            { 'beijingId': '1001', 'beijingName': '朝阳区' },
+            { 'beijingId': '1002', 'beijingName': '海淀区' },
+            { 'beijingId': '1003', 'beijingName': '西城区' },
+            { 'beijingId': '1004', 'beijingName': '东城区' }
+        ]
+        var shanghaiArr = [
+            { 'shanghaiId': '1001', 'shanghaiName': '徐汇区' },
+            { 'shanghaiId': '1002', 'shanghaiName': '浦东新区' },
+            { 'shanghaiId': '1003', 'shanghaiName': '虹口区' },
+            { 'shanghaiId': '1004', 'shanghaiName': '黄埔区' }
+        ]
+        var zhejiangArr = [
+            { 'zhejiangId': '1001', 'zhejiangName': '杭州市' },
+            { 'zhejiangId': '1002', 'zhejiangName': '温州市' },
+            { 'zhejiangId': '1003', 'zhejiangName': '金华市' },
+            { 'zhejiangId': '1004', 'zhejiangName': '衢州市' }
+        ]
+        $.each(cityArr, function (i, o) {
+            $('#city').append($(`<option value="${o.cityId}">${o.cityName}</option>`))
+        })
+
+        // $('option').click(function(){
+        //     console.log($(this));
+        //     if ($(this).text()=='北京'){
+        //         console.log($(this))
+        //         $.each(beijingArr,function(index,obj){
+        //             $(this).append($(`<option value="${o.beijingArr}">${o.beijingName}</option>`));
+        //         })
+        //     }
+        // })
+        $('#city').on("change", function () {
+            $('#area>option').remove()
+            $('#area').append($(`<option value="">请选择</option>`))
+            if ($('#city').val() == '1001') {
+                $.each(beijingArr, function (i, o) {
+                    $('#area').append($(`<option value="${o.beijingId}">${o.beijingName}</option>`))
+                })
+            }
+            else if ($('#city').val() == '1002') {
+                $.each(shanghaiArr, function (i, o) {
+                    $('#area').append($(`<option value="${o.shanghaiId}">${o.shanghaiName}</option>`))
+                })
+            }
+            else if ($('#city').val() == '1003') {
+                $.each(zhejiangArr, function (i, o) {
+                    $('#area').append($(`<option value="${o.zhejiangId}">${o.zhejiangName}</option>`))
+                })
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnStart">启动</button>
+    <button id="btnStop">停止</button>
+    <script>
+
+        // 要注意 timerId 必须是一个全局变量，不然就会造成启动了停止不了的情况
+        var timerId = null;
+        var btnStop = document.getElementById('btnStop');
+        var btnStart = document.getElementById('btnStart');
+        btnStop.onclick = function () {
+            if (timerId!=null){
+                clearInterval(timerId)
+                timerId=null
+            }
+        }
+
+        btnStart.onclick = function () {
+            if (timerId == null) {
+                timerId = setInterval(function () {
+                    console.log('hello')
+                }
+                    , 1000)
+            }
+        }
+    </script>
+</body>
+
+</html>

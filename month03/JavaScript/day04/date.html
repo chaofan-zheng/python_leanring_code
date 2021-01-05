@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var now = new Date();
+        console.log(now); // Mon Jan 04 2021 20:57:18 GMT+0800 (中国标准时间)
+
+        // var end = new Date(2020,11,31,10,30,0); //变成12月 一般不这么写
+        var end = new Date('2020/12/31 10:30:00')
+        console.log(end) //Thu Dec 31 2020 10:30:00 GMT+0800 (中国标准时间)
+        // 时分秒 不写的话默认是00:00:00
+
+        // 获取
+        now.getFullYear()// 年份
+        now.getMonth() //0~11
+        now.getDate() // 日期
+        now.getDay() //星期
+        now.getHours() 
+        now.getMinutes()
+        console.log(now.getSeconds()) // 秒
+        now.getMilliseconds() // 毫秒，浏览器的默认单位是毫秒
+        //还可以设置，把get换成set
+        // now.setFullYear()
+
+        // 转字符串
+        console.log(now.toDateString())// Mon Jan 04 2021
+        console.log(now.toTimeString())// 21:08:52 GMT+0800 (中国标准时间)
+        // 一般是要自己get自己拼，因为看不习惯
+
+        // 倒计时，确定两个时间，计算时间差，然后计算day minute second
+        
+    </script>
+</body>
+
+</html>
