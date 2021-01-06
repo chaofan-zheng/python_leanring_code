@@ -1,0 +1,309 @@
+/* 首页文件样式 */
+/* 初始化页面样式 */
+h1,h2,h3,h4,h5,h6,p,body,ul{
+    /* 这些都是有默认的内外边距 */
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    /* 防止和文字共行显示影响效果 */
+}
+body{
+    /* 指定默认字体 */
+    font: 16px monospace;
+    background-color: #ddd;
+}
+/****************** header *******************/
+header{
+    /* header是div有默认宽度， */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:80px;
+    background-color: #555;
+    z-index: 999; 
+    /* 应该是最上面的 */
+}
+nav{
+    width: 1140px; /*比较通用的*/
+    /* width: 90%; 不能这样，要用都得用百分号，不然会出去 */
+    height: 80px;
+    line-height: 80px; /* 行高等于高度让文字居中*/
+    margin: 0 auto;  /*块元素的居中方法*/
+    /* border: 5px solid red; */
+}
+.logo{
+    font-size: 26px;
+    float: left;
+}
+.logo>a{
+    /* 因为是超链接，所以指定logo不会继承，指定a才会 */
+    color: #c1edf2;
+}
+/* 导航菜单 */
+nav>ul>li{
+    /* display: inline; */
+    color: #e5f2f2;
+    padding: 0 20px;
+    float: left;
+}
+nav>ul>li:hover{
+    color: white;
+    cursor: pointer;
+}
+nav>ul{
+    margin-left: 50px;
+}
+#login,#register{
+    float: right;
+    color: #e5f2f2;
+}
+#login{
+    margin-right: 20px;
+}
+
+/********************* main ************************/
+main{
+    width: 1140px;
+    /* height: 600px;
+    border: 5px solid red; */
+    margin: 100px auto 0;
+}
+/* 轮播图 */
+.banner{
+    width: 66%;
+    float: left;
+}
+.fader{
+    /* 为后代元素绝对定位做参照物 */
+    position: relative;
+}
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+/* 图片上的文字效果 */
+.imgInfo{
+    position: absolute;
+    bottom: 12%;
+    /* width: 92%;   方法一 就是width+padding=100% */
+    /* 方法二  把span撑开*/
+    left: 0;
+    right: 0;
+    font-size: 26px;
+    color: white;
+    background:rgba(0,0,0,0.6);
+    /* opacity: 0.6; */
+    padding-left:8%;
+}
+
+/* 轮播图左右箭头 */
+.prev,.next{
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    font-size: 80px;
+    /* font-weight: bold; */
+    color: white;
+    top: 50%;
+    margin-top: -40px;
+    transition: all 0.3s;  
+    opacity: 0;
+}
+.prev{
+    left: 50px;
+}
+.next{
+    right: 50px;
+}
+/* 空格是后代 >是子代 */
+.fader:hover .prev{
+    cursor: pointer;
+    left: 0;
+    opacity: 0.8;
+}
+.fader:hover .next{
+    cursor: pointer;
+    right: 0;
+    opacity: 0.8;
+}
+/* 轮播页图标 */
+.pageList{
+    /* border: 5px solid red; */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;   /* 这也是行内元素居中的一种方法*/
+}
+.pageList>div{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 50%;
+}
+
+
+
+/* 侧边图片 */
+.toppic{
+    position: relative;
+    width: 30%;
+    float: right;
+    /* border: 5px solid red; */
+}
+.toppic li img{
+    width: 100%;
+    height: 219px ;
+    /* height: 45%  不指定height，由图片高度自己撑起*/ 
+    opacity: 0.7;
+    transition: opacity 0.5s; /* 透明度转换的时间变化,不能写all，all的话如果有其他的转换也会一并实现*/
+}
+.toppic li {
+    position: relative;
+    background-color: #000;
+}
+/* 在img中把图片改的拥有一点透明度，然后把li的背景颜色改成黑色，就能实现亮度变暗的效果 */
+
+.toppic li div{
+    position: absolute;
+    bottom: 0;
+    /* width: 100%; 用padding的话就不能这样写了，会溢出来 */
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+}
+
+.toppic li span{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    
+    /* text-align: center;
+    padding: 8px; */
+    /* 这种方法黑色背景的长度会随着文字长度的改变而改变，如果想要固定大小可以按以下方式去做*/
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+/* 过滤选择器 寻找最后一个子元素*/
+.toppic :last-child{
+    margin-top: 21px;
+}
+
+.toppic li img:hover{
+    opacity: 1;
+}
+/********************* blogs *********************/
+
+/* banner左浮动，toppic右浮动，所以这个bolgbox会有补位 */
+/* 解决bologbox补位的方法 */
+.clear{
+    clear: both;
+}
+.blogbox{
+    /* border: 5px solid red; */
+    width: 100%;
+    /* height: 300px; 靠原本的博客内容支撑出来的*/
+    /* float: left; */
+    margin-top: 50px;
+}
+.blogs{
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* 解决子元素浮动后没高度的问题 */
+    overflow: hidden;
+}
+
+/* 博客标题 */
+.blogtitle a{
+    font-size: 20px;
+    color: #555;
+}
+.blogtitle a:hover{
+    color: #337ab7;
+}
+/* 博客图片 */
+.blogpic{
+    float: left;
+    width: 30%;
+    height: 170px;
+    margin: 10px 20px 0 0;
+    overflow: hidden; /*图片缩放时，溢出div的部分隐藏*/
+
+}
+.blogpic img{
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s;
+}
+/* 鼠标移入时，缩放图片 */
+.blogpic img:hover{
+    transform: scale(1.08);
+}
+
+/* 用户列表 */
+/* .blogs>ul{
+    position: absolute;
+} */
+.blogs>ul>li{
+    line-height: 18px;
+    float: left;
+    margin: 20px 25px;
+    padding-left: 18px;
+    background-image: url(../images/auicon.jpg);
+    background-repeat: no-repeat;
+}
+.blogs>ul>li>a{
+    color:#748594;
+}
+.blogs>ul>li>a:hover{
+    color:#000;
+}
+.lmname{
+    background-position-y: -24.2px;
+}
+.timer{
+    background-position-y: -44.0px;
+}
+.view{
+    background-position-y: -64.0px;
+}
+.like{
+    background-position-y: -85.6px;
+}
+
+
+/******************* footer ********************/
+footer{
+    width: 100%;
+    background-color: #555;
+    color:#a5a4a4;
+    text-align: center;
+    padding: 20px 0;
+}
+footer a{
+    color:#a5a4a4;
+}
+footer a:hover{
+    color:#c1edf2;
+}

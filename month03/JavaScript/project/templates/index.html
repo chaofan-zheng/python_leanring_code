@@ -4,10 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>博客项目首页</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <!-- 重写的一定要在index.css后引入 -->
+    <link rel="stylesheet" href="../static/css/easyFader.css">
+    <!-- 引入JS文件 -->
+    <!-- jquery要在最前面 -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.easyfader.min.js"></script>
+    <script src="../static/js/blogs.data.js"></script>
+    <script src="../static/js/fader.data.js"></script>
+    <!-- 引入自己写的index.js 一定要放在最下面 -->
+    <script src="../static/js/index.js"></script>
+
 </head>
+
+
 <body>
-    <div id="header">头部内容</div>
+    <!-- <div id="header">头部内容</div>
     <div id="main">主题内容</div>
-    <div id="footer">底部内容</div>
+    <div id="footer">底部内容</div> -->
+
+    <header>
+        <!-- 导航栏 nav 相当于div id =nav -->
+        <nav>
+            <!-- 井号防止刷新页面 -->
+            <h1 class="logo"><a href="#">个人博客</a></h1>
+            <!-- u>li*6>a -->
+            <ul>
+                <li><a href="#"></a>网站首页</li>
+                <li><a href="#"></a>文章列表</li>
+                <li><a href="#"></a>我的相册</li>
+                <li><a href="#"></a>留言</li>
+                <li><a href="#"></a>关于我</li>
+                <li><a href="#"></a>发表博客</li>
+            </ul>
+            <ul>
+                <!-- 登录注册 -->
+                <div>
+                    <!-- 因为要用右浮动，所以得先写注册，再写登录 -->
+                    <a id = "register" href="#">注册</a>
+                    <a id="login" href="#">登录</a>
+                </div>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+        <!-- 上半部分，轮播图 加侧边图片 -->
+        <div>
+            <!-- 轮播图 -->
+            <div class="banner">
+                <ul class="fader"><!-- 轮播图的父元素 -->
+                    <!-- 每一张轮播图 -->
+                    <!-- <li class="slide">
+                        <a href="#">
+                            <img src="../static/images/banner02.jpg" alt="">
+                            <span class="imgInfo">干货|如何优雅的在手机上进行python编程</span>
+                        </a>
+                    </li> -->
+
+                    <!-- 因为这两个超链接的内容不一样，所以要这样子做，不能被包在一起 -->
+                    <li class="faderControls">
+                        <!-- 左右箭头和小圆点 -->
+                        <div class="prev">&lt;</div>
+                        <div class="next">&gt;</div>
+
+                    </li>
+                    <li class="pageList">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 侧边图片 -->
+            <ul class="toppic">
+                <li>
+                    <a href="#">
+                        <img src="../static/images/toppic01.jpg" alt="">
+                        <div>精通python编程——python深入浅出教程</div>
+                        <span>Python</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../static/images/toppic02.jpg" alt="">
+                        <div>linux升级py3，安装pip，svn</div>
+                        <span>Linux</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 下半部分内容 博客 -->
+        <div class="clear"></div>
+        <div class="blogbox">
+            <div class="blogs">
+                <!-- 博客标题 -->
+                <h3 class="blogtitle">
+                    <a href="#">python语言在人工智能(AI)中的优势</a>
+                </h3>
+                <!-- 博客图片 -->
+                <div class="blogpic">
+                    <a href="#">
+                        <img src="../static/images/a.jpg" alt="">
+                    </a>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt quos eius ipsam, fugit nostrum quam voluptatibus ullam hic beatae id, aliquam voluptas quasi possimus. Cumque illum itaque tempora veniam quasi!</p>
+                <ul>
+                    <li class="author"><a href="#">giaogiao</a></li>
+                    <li class="lmname"><a href="#">学无止境</a></li>
+                    <li class="timer"><a href="#">2021-01-01</a></li>
+                    <li class="view"><a href="#">214324</a></li>
+                    <li class="like"><a href="#">9999</a></li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </main>
+    <footer>
+        <div>
+            Desgin by Aiden &copy;
+            <a href="#">个人博客</a>
+            <a href="#">备案xxxx号</a>
+        </div>
+    </footer>
 </body>
 </html>

@@ -11,7 +11,11 @@
             height: 272px;
             top: 50%;
             margin-top: -136px;
-            right:0px;
+            right:-123px;
+            /* 隐藏元素 */
+            /* 方法一如下，方法二是把他弄到页面之外 */
+            /* display: none; */
+            transition: all 1s;
         }
         img{
             position:absolute;
@@ -19,13 +23,16 @@
             top: 0;
             z-index: 10;
         }
-        img>#close{
+        #close{
             z-index: 999;
+        }
+        #close:hover{
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div>
+    <div id="parent">
         <img id='close' src="../day03/imgs/img01-5.png" alt="">
         <img src="../day03/imgs/img02-5.png" alt="">
     </div>
@@ -129,6 +136,20 @@
     Quam natus, quas iste repellendus facere enim ipsum illum alias inventore iure nam est quis. Velit inventore maiores est soluta laboriosam blanditiis dignissimos sint, consequuntur, itaque, facere suscipit voluptatibus deleniti.
     Labore tempore vitae illum, quidem illo earum esse nemo sunt, laudantium rerum dignissimos error modi nisi! Ducimus, iste, incidunt cupiditate beatae minus architecto ab libero molestias obcaecati iure vero similique?
     Veritatis velit magnam magni nemo error! Mollitia assumenda in esse nihil quod, optio libero consequatur corporis labore voluptas molestias repellendus, iste obcaecati dignissimos reprehenderit nam necessitatibus quia eos ratione excepturi.</span>
-    
+    <script >
+        var parent = document.getElementById('parent')
+        setTimeout(function(){
+            parent.style ='right:0';
+        },1000)
+
+        var btn = document.getElementById('close')
+        btn.onclick=function(){
+            parent.style='right: -123px'
+            // 这种方法可以重新定义，重新改
+            setTimeout(function(){
+                parent.style='right:0';
+            },5000)
+        }
+    </script>
 </body>
 </html>

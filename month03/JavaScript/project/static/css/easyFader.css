@@ -1,0 +1,27 @@
+/* 专门用于对index.css的调整和补充 */
+/* 每一张轮播图都定位到fader的左上角 */
+.fader{
+    padding-top: 60%;
+}
+.fader .slide{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.toppic li:last-child{
+    margin-top: 15px;
+}
+
+/* 轮播图最上方显示的图片堆叠次序为3 如果想要显示左右箭头和页标 需要设置一个更大的堆叠次序 */
+.prev ,.next ,.pageList{
+    z-index: 4;
+}
+
+.pageList li{
+    margin: 0 5px;
+    /* 利用缩进隐藏文本 */
+    text-indent: -9999px;
+}
