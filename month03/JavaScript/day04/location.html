@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    3秒之后跳转到tmooc..
+    <script>
+        // location.reload()  //这个函数千万不能写到全局，因为会无限调用无限刷新
+        // 通过程序修改location.href实现自动跳转页面
+        // console.log(location.href)
+        setTimeout(function(){
+            location.href='http://www.tmooc.cn/'
+        },3000)
+        //在network界面里面，transferred是真实请求的资源，resources是需要的资源，有部分是从缓存里来的，如果说把Disable cache勾起来，那么两者会相等，所需要的时间会多很多
+    </script>
+</body>
+</html>

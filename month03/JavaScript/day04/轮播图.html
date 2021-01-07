@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        ul{
+            list-style: none;
+            position: relative;
+            width: 739px;
+            height: 419px;
+        }
+        .item{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: all 1s;
+            /* 如果不写不透明度，只写transition是没有用的，因为z-index即使慢慢改变，也是只会在z-index超过的那一瞬间才会显示出来，所以要设置透明度，是必须的 */
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 轮播图可以做两种，一种是移动位置的轮播图，一种是切换图片的轮播图 移动，移到头快速的回来。切换堆叠次序或者一个显示，其他的隐藏 -->
+    <ul id="slide">
+        <li class="item"><img src="../day03/imgs/gm1-6.jpg" alt=""></li>
+        <li class="item"><img src="../day03/imgs/gm2-6.jpg" alt=""></li>
+        <li class="item"><img src="../day03/imgs/gm3-6.jpg" alt=""></li>
+        <li class="item"><img src="../day03/imgs/gm4-6.jpg" alt=""></li>
+        <li class="item"><img src="../day03/imgs/gm5-6.jpg" alt=""></li>
+    </ul>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        var li = document.getElementsByTagName('li')
+        console.log(li)
+        var i = 1;
+        li[0].style.zIndex=99;
+        li[0].style.opacity=1;
+        var timerId = setInterval(function(){
+            if (i>4){
+                i=0
+            }
+            for(var a =0;a<5;a++){
+                li[a].style.zIndex=1
+                li[a].style.opacity=0
+            }
+            li[i].style.zIndex=99
+            li[i].style.opacity=1
+            i++
+        },2000)
+    </script>
+</body>
+</html>
