@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -23,12 +22,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3*k3+j%mczhup7qhfgv+^v#k=%mj2d)rttpb*xz&w&n70t+*%%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 项目的模式
+# True: 开发模式，在页面中可以看到详细的错误信息。
+#       代码修改后，自动重启服务，即使生效。
+#       如果项目没有自己的页面时，会有默认的测试页面(有自己的页面时，就不给测试页面了，如果自己页面有错误会直接404)
+# False：生产模式，在页面中看不到详细的错误信息，不会暴露编程语言。
+#       代码修改后，服务需要手动重启
+#       没有默认的测试页面
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+# 项目的服务器的IP地址
+# True：开发模式，默认的有两项：127.0.0.1和localhost局域网的IP地址
+# False：没有默认的IP地址，一般设置为公网IP
+ALLOWED_HOSTS = ["127.0.0.1", "172.20.10.10"]
 
 # Application definition
+# 4. 项目应用的注册，day03介绍到
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+# 5. 用于注册中间件
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,9 +57,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# 6.项目的主路由文件
 ROOT_URLCONF = 'mysite1.urls'
-
+# 7.模版页的配置项，day02介绍
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -69,17 +78,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite1.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+# 8.数据库相关配置，未来配置会用mysql数据库
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -99,20 +106,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
+# 9. 语言和时区
+LANGUAGE_CODE = 'zh-Hans'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'  # UTC
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

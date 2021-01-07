@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="prov">
+        <option value="0">请选择</option>
+    </select>
+    <select name="" id="city">
+        <option value="0">请选择</option>
+    </select>
+    <select name="" id="area">
+        <option value="0">请选择</option>
+    </select>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script>
+        // console.log(data); 
+        var $prov = $('#prov');
+        var $city = $('#city');
+        var $area = $('#area');
+
+        // 在页面$prov中添加省份，当选择省份时，加载省份对应的城市
+        $.each(data, function (i, o) {
+            $prov.append($(`<option value="${o.provId}">${o.provname}</option>`))
+        });
+
+        $prov.on('change', function () {
+            $city.html('<option value="0">请选择</option>')
+            $area.html('<option value="0">请选择</option>')
+            if (data[$prov.val() - 1]) {
+                var arr = data[$prov.val() - 1].citys;
+                // console.log(arr)
+                $.each(arr, function (i, o) {
+                    $city.append($(`<option value ="${o.cityId}">${o.cityname}</option>`))
+                })
+            }
+        })
+
+        $city.on('change', function () {
+            $area.html('<option value="0">请选择</option>')
+            $.each(data, function (i, province) {
+                if ($prov.val() == province.provId) {
+                    $.each(province.citys, function (i, cities) {
+                        if ($city.val() == cities.cityId) {
+                            $.each(cities.areas, function (i, o) {
+                                $area.append($(`<option value='${o.areaId}'>${o.areaname}</option>`))
+                            })
+                        }
+                    })
+                }
+            })
+        }
+        )
+
+    </script>
+</body>
+
+</html>

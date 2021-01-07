@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # 新加
+    # http://127.0.0.1:8000
+    path('',views.page_index), # 默认首页
+    # http://127.0.0.1:8000/page/2003
+    path('page/2003',views.page_2003),
+    path('page/2004',views.page_2004),
 ]
