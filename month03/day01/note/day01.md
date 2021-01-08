@@ -20,13 +20,28 @@
     - 规范数据在传输过程中的打包方式
 ## 3.  开发前的准备
 1. 运行环境：浏览器，设置chrome为默认浏览器，作为网页文件的运行环境。
+
 2. 调试工具：浏览器自带的调试工具，使用快捷键"F12"或右键"检查"打开。
-ctrl + - 缩小字体     ctrl + + 放大字体 
+  ctrl + - 缩小字体     ctrl + + 放大字体 
+
 3. 开发工具：不限，选用个人习惯的即可。（Sublime、VSCode、EditPlus、PyCharm等）
-open in browser
+  open in browser
+
 4. 改成中文:Vs code -extension-Chinese-install-restart now
+
 5. 自动保存-afterDelay-1000 字体大小fontsize 制表符 Tab SIze
+
 6. 搜索Word Wrap 控制哲行的方式 -bounded
+
+   vs下载源:
+
+    windows
+
+   https://vscode.cdn.azure.cn/stable/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/VSCodeUserSetup-ia32-1.52.1.exe
+
+    把/stable前的改成vscode.cdn.azure.cn
+
+   
 
 # 二、 HTML语法介绍
 ## 1.  HTML介绍
@@ -166,6 +181,19 @@ open in browser
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis necessitatibus quis natus, provident et tenetur quam repellendus libero repellat voluptas eos cupiditate, nihil odit autem. Autem error nemo harum sed!</p>
         <p>Placeat quisquam fugit ipsa ipsam laudantium perspiciatis! Reprehenderit unde quis aspernatur ipsum voluptates hic at perspiciatis eos voluptate, dolores aperiam? Impedit, ea? Facere, ratione? Voluptatibus quo voluptatem assumenda tempore minima.</p>
         <p>Maiores laborum vero nemo veniam sit hic, id incidunt sint pariatur beatae tenetur exercitationem libero cumque modi consequatur quos! Earum, nobis rerum. Voluptatem suscipit possimus autem voluptas sequi, quis quasi?</p>
+    
+    div.parent*2>img*3
+    生成两个class为parent的div标签，每个div标签下有三个imag图像
+    <div class="parent">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+        <div class="parent">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
     ```
     
     
@@ -174,6 +202,7 @@ open in browser
      浏览器会忽略代码中的换行和空格，只显示为一个空格。想要实现页面中的换行，需要借助于换行标签。
      ```html
      <br>
+        <!-- 浏览器里面默认特点是，忽略空格和换行，要换行，必须得加<br>,也可以直接放里面-->
      ```
     - 水平线标签，在页面中插入一条水平分割线
      ```html
@@ -189,6 +218,18 @@ open in browser
      使用 &nbsp; 在页面中呈现一个空格
      使用 &copy; 在页面中呈现版权符号"©"
      使用 &yen; 在页面中呈现人民币符号"￥"
+     
+     b 加粗
+     strong 强调
+     br 换行
+     i 倾斜
+     u 带有下划线
+     hr 水平分割线
+     ol 有序列表
+     ul 无序列表
+     tr 表格行
+     td 表格单元格 colspan 跨列合并 rowspan 从左向右合并
+     
     ```
     
     ```html
@@ -249,6 +290,7 @@ open in browser
       语法：
     ```html
     <img src="" width="" height="" title="" alt="">
+    <!-- alt用于图片加载失败后的提示文本，title用于鼠标悬停在图片上时的显示 -->
     ```
     - 超链接标签：用户可以点击超链接实现跳转至其他页面
       1. 属性 href 用于设置目标文件的URL，必填。
@@ -256,6 +298,7 @@ open in browser
     ```html
     <a href="http://www.taobao.com" target="_self">淘宝</a>
     <a href="http://www.baidu.com" target="_blank">百度</a>
+    <!-- href有一个属性target，如果是self的话在当前窗口打开，blank新窗口，默认在当前窗口打开 -->
     ```
 ## 3. 常用结构标签
   - 列表标签 
@@ -325,6 +368,32 @@ open in browser
         <tfoot></tfoot>
         <tbody></tbody>
     </table>
+    
+     <table border="1px" cellspacing = "0">
+            <!-- tr*4>td*3 四行三列 -->
+            <tr>
+                <!-- colspan 跨列合并 从左向右横向合并 -->
+                <td colspan="3">11</td>
+                <!-- <td>12</td>
+                <td>13</td> -->
+            </tr>
+            <tr>
+                <!-- 跨行合并 从上向下合并 -->
+                <td rowspan="3">14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <!-- <td>17</td> -->
+                <td>18</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <!-- <td>20</td> -->
+                <td>21</td>
+                <td>22</td>
+            </tr>
+        </table>
     ```
   - 表单标签
     表单用于采集用户的信息并提交给服务器，由表单元素和表单控件组成。表单元素form负责提交数据给服务器，表单控件负责收集数据。
@@ -356,16 +425,102 @@ open in browser
 
 表单控件用于采集用户信息，常用控件如下：
 ```html
-  <input type="text">  文本框
-  <input type="password">  密码框
-  <input type="radio">  单选按钮
+  <input type="text">  文本框 value取值 placeholder maxlength
+  <input type="password">  密码框  placeholder maxlength
+  <input type="radio">  单选按钮 checked 默认选中
   <input type="checkbox">  复选框
   <input type="file">  文件上传
   <input type="button"> 普通按钮
   <input type="submit">  提交按钮
-  <select></select>  下拉菜单
+	<input type="reset" >  重置按钮
+  <select></select>  下拉菜单 里面是option  select 有vaule属性传值  size能设置一次性能显示的选择大小，可以用于把下拉菜单编程滚动
   <textarea></textarea> 文本域 
 ```
+
+```html
+<!-- post请求内容不会再url里面暴露，对于密码等用post -->
+<form action="" method="post" enctype=""> 
+        <div>
+            <!-- 对于输入框而言，用户写什么，value就是什么，不用写value -->
+            姓名：<input type="text" name="username"><br>
+            密码：<input type="password" name="userpwd"><br>
+            <input type="submit">
+        </div>
+    </form>
+    <form action="" method="post" enctype=""> 
+
+        <!-- placeholder 只对输入文本框有用 -->
+        <input type="text" name="username" placeholder="姓名" maxlength="10"><br>  <!-- value属性可以突破这个maxlength的限制 -->
+        
+        <input type="password" name="userpwd" placeholder="密码"><br>
+        <input type="submit">
+    </form>
+```
+
+用form表单就一定得设置name，不然不知道是哪个控件传的值
+
+```html
+<form action="">
+        <input type="radio" value="A" name="answer">A
+        <input type="radio" value="B" name="answer">B
+        <input type="submit">
+    </form>
+    <!-- ?answer=A&answer=B -->
+    <form action="">
+        <input type="checkbox" value="A" name="answer">A
+        <input type="checkbox" value="B" name="answer">B
+        <input type="submit">
+    </form>
+    <!-- ?area=北京 -->
+    <form action="">
+        <!-- size 下拉菜单从下拉变成滚动 -->
+        <!-- multiple 多选 -->
+        <!-- selected 可以作为下拉菜单的默认选中 -->
+        <select name="area" id="" size = "4" multiple>
+            <option value="o">请选择</option>
+            <option value="北京" selected>北京</option>
+            <!-- 也可以把value写成特殊的值,跟数据库的id对应，比如说数据库的北京的id为101，value = "101" -->
+            <option value="上海">上海</option>
+            <option value="深圳">深圳</option>
+            <option value="杭州">杭州</option>
+            <option value="广州">广州</option>
+            <option value="西安">西安</option>
+        </select>
+        <input type="submit">
+        <br>
+    </form>
+    <!-- ?protocol=1&autologin=on -->
+    <form>
+        <!-- ?protocol=on -->
+        <input type="checkbox" name = "protocol" value="1">请阅读并同意协议
+        <!-- <input type="submit"> -->
+        <br>
+    <!-- </form> -->
+    <!-- <form> -->
+        <!-- checked 默认选中 -->
+        <input type="checkbox" checked name="autologin" value="1" >自动登录
+        <input type="submit" value="保存">
+        <!-- input 的value为按钮上的文字 -->
+        <br> 
+    </form>
+```
+
+```javascript
+// 用JS代码在HTML中获取到所有选中的checkbox值
+// 1.所有的checkbox的name取一致的值
+// 2.通过name获取到一个对象的集合 id，
+// 3.遍历这个集合，如果其中一个是checked
+// 4.就将checked的数据添加到我们的array中
+// 5.集合是以英文逗号,分割的value值的集合
+var id = document.getElementsByName('rights');
+            var value = new Array();
+            for(var i = 0; i < id.length; i++){
+             if(id[i].checked)
+             value.push(id[i].value);
+            }
+```
+
+
 
 
 
