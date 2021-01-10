@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action='/mycalc' method='post'>
+<!--x=1&op=add&y=2-->
+<!--    如果不把value = 1 改成 {{ x }}的时候 每次刷新页面这个都会变回1-->
+    <input type='text' name="x" value="{{ x }}">
+    <select name='op'>
+<!--        这里一刷新会一直显示 加法 解决办法是得在前端判断一下-->
+<!--        虽然会报错，是因为pycharm不能识别这种格式，但是可以用的-->
+        <option value="add" {% if op == 'add' %} selected {% endif %}> +加 </option>
+        <option value="sub" {% if op == 'sub' %} selected {% endif %}> -减 </option>
+        <option value="mul" {% if op == 'mul' %} selected {% endif %}> *乘 </option>
+        <option value="div" {% if op == 'div' %} selected {% endif %}> /除 </option>
+    </select>
+    <input type='text' name="y" value="{{ y }}"> = <span>{{ res }}</span>
+    <div>
+        <input type="submit" value='开始计算'>
+    </div>
+    <script>
+        var res = "{{ op }}"
+        console.log(res)
+    </script>
+</form>
+</body>
+</html>

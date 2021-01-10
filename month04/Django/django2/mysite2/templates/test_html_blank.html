@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+        transition: all 0.5s;
+        }
+        h1:hover{
+        font-size:80px
+        }
+    </style>
+</head>
+<body>
+<h1>模版测试页</h1>
+<h2>班级名称:{{ name | upper }}</h2>
+<!--截断-->
+<h2>班级名称：{{ name | truncatechars:'2' }}</h2>
+<h2>班级人数:{{ count| add:'350' }}</h2>
+<h2>直辖市:{{ cities }} | {{ cities.1 }}</h2>
+<h2>人数分布:{{ distribute }} | 西安:{{ distribute.西安 }}人 </h2>
+<h2>{{ person1.showData }}</h2>
+<h1>{{ function1 }}</h1>
+<!--  为什么不行，因为Django框架为了保护用户计算机不受攻击，不会让浏览器执行这个代码-->
+<!-- {{script}} -->
+{{ script | safe }}
+
+
+<h3>模版标签的使用</h3>
+<!--  这里一定要打空格-->
+{% if count > 350 %}
+    <p>我们是个大家庭</p>
+{% else %}
+    <p>我是你爹</p>
+    <script>alert('我是你爹')</script>
+{% endif %}
+
+<p>刘备手下五虎上将</p>
+{% for person in people %}
+    <h1>{{ forloop.revcounter0 }}. {{ person }}</h1>
+{% empty %}
+    <h1>是非成败转头空</h1>
+{% endfor %}
+</body>
+</html>
