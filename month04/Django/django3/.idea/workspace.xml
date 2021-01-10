@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="860c94f0-846a-483a-a5ce-7ef29129ccb7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mysite3/mysite3/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite3/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite3/templates/news.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite3/templates/pagen.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite3/templates/sports.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite3/templates/test_static.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/django3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite3/mysite3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite3/mysite3/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite3/mysite3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite3/mysite3/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1mrHpQJYWvdgMNw1ukO5KT8OO3D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite3/user/templates/user" />
+      <recent name="$PROJECT_DIR$/mysite3/music/templates/music" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="860c94f0-846a-483a-a5ce-7ef29129ccb7" name="Default Changelist" comment="" />
+      <created>1610244972828</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610244972828</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="437" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610264704861">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="437" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1610264704861" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1610246081889">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1610246081889" />
+    <state x="100" y="100" width="1240" height="700" key="dock-window-1" timestamp="1610250487641">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1610250487641" />
+    <state x="100" y="100" width="1240" height="700" key="dock-window-2" timestamp="1610250487642">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1610250487642" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1610250405762">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1610250405762" />
+  </component>
+</project>

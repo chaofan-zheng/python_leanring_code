@@ -14,8 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index_view),
+    path('sports', views.sports_view),
+    # news_url 相当于是一个变量，他的值是news
+    path('news', views.news_view, name='news_url'),
+    path('<int:num>', views.pagen_view, name='pagen_url'),
+    path('test_static', views.test_static),
+    # 再往下做分布式路由
+
+    path('user/', include('user.urls')),
+    path('music/', include('music.urls')),
+    path('index',views.index2_view)
 ]
