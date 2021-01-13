@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        mysite3首页
+        {% endblock %}
+    </title>
+</head>
+<body>
+<div id='nav'>
+    <a href="/">首页</a>
+    <a href="/sports">体育</a>
+    <a href="/news">新闻</a>
+    <a href="{% url 'news_url' %}">新闻[反向解析]</a>
+    <!--        好处在于 修改url的时候 比如不是news了，这种方法 就不用改了-->
+    <!--        演示传参-->
+    <a href="{% url 'pagen_url' '300' %}">pagen</a>
+</div>
+<div id="content">
+    {% block content %}
+    <h2>welcome to mysite</h2>
+    {% endblock %}
+</div>
+<div id="foot">
+    京备字：010-465487987 联系方式：400-010-888
+</div>
+</body>
+</html>
