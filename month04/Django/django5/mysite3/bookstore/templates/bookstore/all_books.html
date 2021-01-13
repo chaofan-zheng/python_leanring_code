@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+</head>
+<body>
+<a href="/bookstore/add_book">添加图书</a>
+<table border="1">
+      <tr>
+        <th>编号</th>
+        <th>书名</th>
+        <th>出版社</th>
+        <th>定价</th>
+        <th>零售价</th>
+        <th>操作</th>
+    </tr>
+
+    {% for book in all_book %}
+    <tr>
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.pub }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.market_price }}</td>
+        <td>
+        <a href="/bookstore/update_book{{ book.id }}">更新</a>
+        <a href="/bookstore/delete_book?book_id={{ book.id }}">删除</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
