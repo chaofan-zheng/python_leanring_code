@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'music',
     'user',
     'bookstore',
-    'oto'
+    'oto',
+    'otm',
+    'mtm',
 ]
 
 MIDDLEWARE = [
