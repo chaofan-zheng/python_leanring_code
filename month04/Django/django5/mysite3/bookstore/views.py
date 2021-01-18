@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -55,3 +56,8 @@ def delete_book(request):
     book.delete()
 
     return HttpResponseRedirect('all_books')
+
+
+def test(request):
+    books = Book.objects.filter(Q(price__gt=50) & Q(market_price__gte=90))
+    return render(request, 'bookstore/test.html', locals())

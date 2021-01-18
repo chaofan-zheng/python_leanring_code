@@ -7,5 +7,6 @@ urlpatterns = [
     path('all_books', views.all_books),
     path('add_book', views.add_book),
     path('update_book<int:book_num>', views.update_book),
-    path('delete_book',views.delete_book)
+    path('delete_book', views.delete_book),
+    path('test', views.test),
 ]
