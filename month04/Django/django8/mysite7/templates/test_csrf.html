@@ -6,6 +6,7 @@
 </head>
 <body>
 <form method="post" action="/test_csrf">
+    {% csrf_token %}
     用户名:<input type="text" name="username">
     <input type="submit" value="提交">
 </form>

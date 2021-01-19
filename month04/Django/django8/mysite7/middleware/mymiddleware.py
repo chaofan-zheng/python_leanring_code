@@ -36,7 +36,7 @@ class MyMiddleWare3(MiddlewareMixin):
         ip = request.META['REMOTE_ADDR']
         url = request.path_info
         # print(url)  # /test
-        if not re.match(r'^/test', url):
+        if not re.match(r'^/test$', url):
             return
         times = self.ip_history.get(ip, 0)
         if times >= 5:

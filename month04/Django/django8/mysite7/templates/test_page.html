@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>分页显示</title>
+</head>
+<body>
+{% for item in page %}
+    <div>{{ item }}</div>
+{% endfor %}
+
+{% if page.has_previous %}
+<a href="{% url 'page_num' %}?page={{ page.previous_page_number }}">上一页</a>
+{% else %}
+上一页
+{% endif %}
+
+{% for p in paginator.page_range %}
+    {% if p == page.number %}
+        {{ p }}
+    {% else %}
+        <a href="{% url 'page_num' %}?page={{ p }}">{{ p }}</a>
+    {% endif %}
+{% endfor %}
+
+{% if page.has_next %}
+<a href="{% url 'page_num' %}?page={{ page.next_page_number }}">下一页</a>
+{% else %}
+下一页
+{% endif %}
+</body>
+</html>
