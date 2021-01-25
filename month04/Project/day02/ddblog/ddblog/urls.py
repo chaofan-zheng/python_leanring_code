@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('test_cors',views.test_cors),
+    path('test_cors_server',views.test_cors_server),
 ]
