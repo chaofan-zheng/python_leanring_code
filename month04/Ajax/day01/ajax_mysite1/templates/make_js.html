@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test_Json</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+            $.ajax({
+                url:'/make_js',
+                type:'get',
+                success:function(res){
+                    var out = JSON.parse(res)
+                        console.log(out.name,out.age)
+                }
+            })
+        })
+    })
+</script>
+<body>
+<button id="btn">make_json</button>
+</body>
+</html>

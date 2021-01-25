@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('test_xhr', views.test_xhr),
+    path('test_xhr_get', views.test_xhr_get),
+    path('test_xhr_get_server', views.test_xhr_get_server),
+    path('test_jq_get', views.test_jq_get),
+    path('test_json', views.test_json),
+    path('my_test', views.my_test),
+    path('make_js',views.make_js),
+    path('register',views.register),
+    path('cross',views.test_cross),
+    # cross_server
+    path('cross_server',views.cross_server),
+
 ]

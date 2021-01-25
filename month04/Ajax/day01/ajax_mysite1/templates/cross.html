@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域测试</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+    // 定义一个预留函数
+    function print(data){
+        console.log(data)
+    }
+    // 当页面所有元素加载成功了会执行
+    $(function(){
+        $('#btn').click(function(){
+            // alert(111);
+            // 原理
+            // var body = document.getElementsByTagName('body')[0];
+            // // getElementsByTagName是返回多个元素的，所以需要索引0
+            // var script = document.createElement('script');
+            // script.type = 'text/javascript';
+            // // 设置标签的src属性
+            // script.src = 'http://localhost:8000/cross_server?callback=print'
+            // // 将动态生成的script标签添加到body中
+            // body.append(script)
+
+            // jquery
+            // $.ajax({
+            //         url:'http://localhost:8000/cross_server',
+            //         type:'get',
+            //         dataType:'jsonp',//指定为跨域访问
+            //         jsonp:'callback',//定义了callback的参数名，以便获取callback传递过去的函数名
+            //         jsonpCallback:'print' //定义jsonp的回调函数名
+            // });
+
+            // 方法三
+            $.ajax({
+                url:'http://localhost:8000/cross_server',
+                type:'get',
+                dataType:'jsonp',//指定为跨域访问
+                success: function(data){
+                    console.log(data)
+                }
+            });
+            // 局限性都在于，只能发送get请求
+        })
+    })
+</script>
+<body>
+<button id="btn">跨域请求</button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery GET 请求</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        // 闭包 防止代码已经开始执行，但是页面按钮还没有加载过来的情况
+        $('#btn').click(function(){
+            alert('hellp world')
+            $.ajax({
+                url:'/test_xhr_get_server',
+                type:'get',
+                // res 就是服务端返回给客户端的数据
+        
+                success:function(res){
+                    $('#show').html(res);
+                }
+            })
+        })
+    })
+</script>
+<body>
+<button id ='btn'>Test_JQ_GET</button>
+<div id="show"></div>
+</body>
+</html>

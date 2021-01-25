@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test_Json</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+            // alert('hello world');
+            var json_obj={
+                "username":"aid2010",
+                "age":18,
+            };
+            console.log(json_obj.username,json_obj.age)
+            // json数组
+            var json_arr = [
+                {
+                    'name':'tedu',
+                    'age':18,
+                },
+                {
+                    'name':'Aiden',
+                    'age':20,
+                },
+            ]
+            console.log(json_arr)
+            // 数据遍历
+            $(json_arr).each(function(index,obj){
+                console.log(index,obj.name,obj.age)
+            })
+        })
+    })
+    $(function(){
+        $('#btn2').click(function(){
+            $.ajax({
+                url:'/my_test',
+                type:'get',
+                success:function(res){
+                    var out = JSON.parse(res)
+                    $(out).each(function(index,obj){
+                        console.log(index,obj.name,obj.age)
+                    })
+                }
+            })
+        })
+    })
+</script>
+<body>
+<button id="btn">test_json</button>
+<button id="btn2">test_json2</button>
+</body>
+</html>

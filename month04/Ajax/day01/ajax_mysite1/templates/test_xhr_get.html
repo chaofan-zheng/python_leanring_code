@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xhr的Get请求</title>
+</head>
+<body>
+<button onclick="getXhr()">getXhr</button>
+<div id="show"></div>
+</body>
+<script src="/static/js/common.js"></script>
+
+<script>
+    function getXhr(){
+        // 创建xhr对象
+        var xhr = createXhr();
+        // 创建get请求
+        xhr.open('GET','/test_xhr_get_server',true);
+        // 设置回掉函数
+        xhr.onreadystatechange=function(){
+            if (xhr.readyState == 4 && xhr.status == 200){
+                document.getElementById('show').innerText = xhr.responseText;
+            }
+        }
+        // 发送send请求
+        xhr.send(null);
+    }
+</script>
+</html>
