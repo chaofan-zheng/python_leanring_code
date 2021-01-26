@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from user import views as user_views  # 为了防止与主目录下的views冲突，进行重命名
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test_cors',views.test_cors),
-    path('test_cors_server',views.test_cors_server),
+    path('test_cors', views.test_cors),
+    path('test_cors_server', views.test_cors_server),
+    # 博客项目路由设置
+    # 基于CBV
+    # 模块函数名.试图类.as_view()
+    path('v1/users', user_views.UserView.as_view())  # 类中的函数
+    # 在as_view()里针对不同请求方式，在试图类中去查找对应的类的方法（封装在django里面）找到调用，没找到直接报异常
+    # 异常码405 请求的方法不存在
 ]

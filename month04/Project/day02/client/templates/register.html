@@ -52,7 +52,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
               <div class="clear"> </div>
             </li>
             <li style="border:none">
-				<input type="button" value="创建并登录">
+				<input type="button" onclick='register()' value="创建并登录">
             </li>
 				</ul>
 				<div class="clear"> </div>
@@ -88,6 +88,35 @@ A ny individuals and organizations and not for commercial use, professiona websi
 		setTimeout(function() {
     		settime(obj) }
     	,1000)
+	}
+	// 注册
+	function register(){
+		var username = $('.username').val();
+		var email = $('.email').val();
+		var password_1=$('.password_1').val();
+		var password_2=$('.password_2').val();
+		var phone = $('.phone').val();
+		var post_data = {"username":username,"email":email,"password1_":password_1,"password_2":password_2,"phone":phone}
+		// console.log(post_data);
+		// 向后端发送ajax请求
+		$.ajax({
+			url:'http://127.0.0.1:8000/v1/users',
+			type:'POST',
+			// 将json对象序列化为json串
+			data:JSON.stringify(post_data), 
+			contentType:'application/json', //前端给后端的数据类型
+			// 后端给前段响应的数据类型
+			dataType:'json',
+			// 响应成功后的回掉函数 设置了dataType后 jquery 会自动的将收到的json字符串转换为对象
+			success:function(res){
+				if(res.code == 200){
+					alert('注册成功');  // 返回的对象应该有code，username，data，error等键值
+				}else{
+					alert(res.error);
+				}
+			}
+
+		})
 	}
 
 
