@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 import json
@@ -5,6 +6,8 @@ import json
 from django.views import View
 from .models import UserProfile
 import hashlib
+import jwt
+import time
 
 
 class UserView(View):
@@ -48,5 +51,21 @@ class UserView(View):
         except:
             result = {'code': 10102, 'error': '用户名已注册'}  # 虽然返回的错误都是用户名已注册，但是，产生错误的时机不一样。所以错误代码不一样
             return JsonResponse(result)
+        # 6. 如何记住登录状态
+        #   以前的云笔记项目中，我们使用session保存登录状态
+        #   博客项目中使用刚刚学习的token
+        token = make_token(username)
+        token = token.decode()
+        # 不decode的话，字节串验证的时候会出现错误
+        # 把字节串转换成字符串
+        return JsonResponse({'code': 200, 'username': username, 'data': {'token': token}})
 
-        return JsonResponse({'code': 200})
+
+def make_token(username, expire=3600 * 24):
+    key = settings.JWT_TOKEN_KEY
+    now = time.time()
+    payload = {'username': username, 'exp': now + expire}
+    # 生成token
+    return jwt.encode(payload, key, algorithm='HS256')
+
+# 官方jwt encode会把其变成token（字节串）

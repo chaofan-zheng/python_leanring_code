@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'user',
+    'btoken',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'ddblog.urls'
 
@@ -146,3 +146,5 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
 )
 
+# 生成token使用的密钥
+JWT_TOKEN_KEY = '123456'

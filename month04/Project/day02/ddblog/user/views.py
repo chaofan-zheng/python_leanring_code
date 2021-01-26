@@ -37,5 +37,5 @@ class UserView(View):
 
         # 4.4 数据入库
         # 在高并发情况下仍然需要try
-        
+
         return JsonResponse({'code': 200})
