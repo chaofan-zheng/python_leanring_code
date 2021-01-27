@@ -39,7 +39,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
 		var username = $('.username').val();
 		var password = $('.password').val();
 		var post_data = {'username':username,'password':password}
-		// console.log(post_data)
+		// console.log(post_data);
 		$.ajax({
 			url:'http://127.0.0.1:8000/v1/tokens',
 			type:'POST',
@@ -47,18 +47,22 @@ A ny individuals and organizations and not for commercial use, professiona websi
 			contentType:'application/json',
 			dataType:'json',
 			success:function(res){
-				if (res.code == 200){
-					alert('登录成功')
-					// 在本地存储当中存储token和用户名（登录信息）
-					window.
+				if(res.code == 200){
+					alert('登录成功！');
+					// console.log(res.data.token);
+					// console.log(res.username);
+					// 在本地存储中存储token和用户名
+					window.localStorage.setItem('dnblog_token',res.data.token);
+					window.localStorage.setItem('dnblog_user',res.username);
+					// console.log(window.localStorage.getItem('dnblog_user'));
+
+
 				}else{
-					alert(res.error())
+					alert(res.error);
 				}
 			}
 		})
-
 	}
 </script>
-
 
 </html>

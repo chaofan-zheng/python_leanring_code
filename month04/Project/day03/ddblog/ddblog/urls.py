@@ -14,9 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 from user import views as user_views  # 为了防止与主目录下的views冲突，进行重命名
+from btoken import views as btoken_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +28,13 @@ urlpatterns = [
     # 博客项目路由设置
     # 基于CBV
     # 模块函数名.试图类.as_view()
-    path('v1/users', user_views.UserView.as_view())  # 类中的函数
     # 在as_view()里针对不同请求方式，在试图类中去查找对应的类的方法（封装在django里面）找到调用，没找到直接报异常
     # 异常码405 请求的方法不存在
+    path('v1/users', user_views.UserView.as_view()),  # 类中的函数
+    # 在urls中 分布式陆游模块
+    path('v1/users/',include('user.urls')),
+
+    path('v1/tokens',btoken_views.TokenView.as_view()),
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

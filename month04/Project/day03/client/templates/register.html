@@ -112,8 +112,8 @@ A ny individuals and organizations and not for commercial use, professiona websi
 				if(res.code == 200){
 					alert('注册成功');  // 返回的对象应该有code，username，data，error等键值
 					// 在本地存储当中存储token和用户名
-					window.localStorage.setItem('ddblog_token',res.data.token)
-					window.localStorage.setItem('ddblog_username',res.username)
+					window.localStorage.setItem('dnblog_token',res.data.token);
+					window.localStorage.setItem('dnblog_user',res.username);
 					// 存username 是为了之后使用方便
 				}else{
 					alert(res.error);
