@@ -4,6 +4,9 @@ import json
 import base64
 
 import requests  # 使用该库发送请求
+from django.utils.decorators import method_decorator
+
+from ddblog.celery import app
 
 
 class YunTongXin():

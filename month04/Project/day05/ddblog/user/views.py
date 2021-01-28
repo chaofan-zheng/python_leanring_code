@@ -6,6 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.utils.decorators import method_decorator
 from django.views import View
+
 from .models import UserProfile
 import json
 import hashlib
@@ -16,7 +17,7 @@ from django.conf import settings
 from tools.login_dec import login_check
 from django.core.cache import cache
 from tools.sms import YunTongXin
-
+from .task import send_sms
 
 class UserView(View):
     # 处理 v1/users的 GET 请求
@@ -176,23 +177,8 @@ def sms_view(request):
     # 将验证码放到redis中
     cache_key = f'sms_{phone}'
     cache.set(cache_key, code, 180)  # 有效时间3分钟，和前端同步
-    # 向指定的手机号发送短信验证
-    # account_id = '8aaf0708773733a8017741b5dc9904ae'
-    # auth_token = 'e7ca8f6377ef406ea0afec3f73e28d36'
-    # AppId = '8aaf0708773733a8017741b5dd6804b4'
-    # template_id = '1'
-    # 这些都写到配置文件里面去
-    account_id = settings.ACCOUNT_ID
-    auth_token = settings.AUTH_TOKEN
-    AppId = settings.APPID
-    template_id = settings.TEMPLATE_ID
-    # 不能用内置的setting？ why
-    # 必须全大写！！！！！
-    # setting里设置的变量必须全大写
-
-    x = YunTongXin(account_id, auth_token, AppId, template_id)
-    res = x.run(phone, code)
-    print(res)
-    # {"statusCode":"000000","templateSMS":{"smsMessageSid":"31a508ec301d44e6a3e8dc1e7a82d683","dateCreated":"20210127143926"}}
+    send_sms.delay(phone,code)
 
     return JsonResponse({'code': 200})
+
+
