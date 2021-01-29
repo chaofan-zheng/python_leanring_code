@@ -115,7 +115,8 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# 改成Flase之后，数据库存储的不再是国际标准时间，而是当前时区的时间
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

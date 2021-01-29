@@ -37,3 +37,17 @@ def login_check(func):
         return func(request, *args, **kwargs)
 
     return wrap
+
+
+# 获取文章访问者的信息
+def get_user_by_request(request):
+    # 没有登录的用户【游客】
+    token = request.META.get('HTTP_AUTHORIZATION')
+    if not token:
+        return None
+    try:
+        payload = jwt.decode(token, settings.JWT_TOKEN_KEY, algorithms=['HS256'])
+    except:
+        return None
+    username = payload['username']
+    return username

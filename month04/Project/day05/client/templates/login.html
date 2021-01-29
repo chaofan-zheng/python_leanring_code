@@ -52,6 +52,8 @@ A ny individuals and organizations and not for commercial use, professiona websi
 					// 在本地存储中存储token和用户名
 					window.localStorage.setItem('dnblog_token',res.data.token);
 					window.localStorage.setItem('dnblog_user',res.username);
+					// 登录成功后，跳转到列表页
+					window.location = '/'+res.username+'/topics';
 
 				}else{
 					alert(res.error);
