@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'user',
     'btoken',
     'topic',
+    'message',
 ]
 
 MIDDLEWARE = [

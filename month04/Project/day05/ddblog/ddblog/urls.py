@@ -38,6 +38,8 @@ urlpatterns = [
 
     path('v1/topics/',include('topic.urls')),
 
+    path('v1/messages/',include('message.urls'))
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL,

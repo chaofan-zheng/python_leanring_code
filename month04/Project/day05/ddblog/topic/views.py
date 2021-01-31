@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 
+from message.models import Message
 from tools.login_dec import login_check, get_user_by_request
 from topic.models import Topic
 from user.models import UserProfile
@@ -158,22 +159,21 @@ class TopicView(View):
         # }
         if is_self:
             next_topic = Topic.objects.filter(id__gt=author_topic.id,
-                                              user_profile_id = author.username).order_by('id').first()
+                                              user_profile_id=author.username).order_by('id').first()
             last_topic = Topic.objects.filter(id__lt=author_topic.id,
-                                              user_profile_id = author.username).order_by('id').last()
+                                              user_profile_id=author.username).order_by('id').last()
             if next_topic:
                 next_id = next_topic.id
                 next_title = next_topic.title
             else:
                 next_id = None
-                next_title=None
+                next_title = None
             if last_topic:
                 last_id = last_topic.id
                 last_title = last_topic.title
             else:
                 last_id = None
-                last_title=None
-
+                last_title = None
 
             # try:
             #     next_id = author_topic.id + 1
@@ -199,15 +199,13 @@ class TopicView(View):
                 next_title = next_topic.title
             else:
                 next_id = None
-                next_title=None
+                next_title = None
             if last_topic:
                 last_id = last_topic.id
                 last_title = last_topic.title
             else:
                 last_id = None
-                last_title=None
-
-
+                last_title = None
 
             # try:
             #     next_id = author_topic.id + 1
@@ -235,7 +233,50 @@ class TopicView(View):
         res['data']['last_id'] = last_id
         res['data']['last_title'] = last_title
         res['data']['messages'] = []
-        res['data']['messages_count'] = 0
+        messages = Message.objects.filter(topic_id=author_topic.id, parent_message=0)
+        for message in messages:
+            list01=[]
+            dict01 = {
+                "id": message.id,
+                "content": message.content,
+                "publisher": message.user_profile_id,
+                "publisher_avatar": str(UserProfile.objects.get(username=message.user_profile_id).avatar),
+                "reply": list01,
+                "created_time": message.created_time
+            }
+            replies = Message.objects.filter(topic_id=author_topic.id,parent_message=message.id)
+            for reply in replies:
+                dict02 = {
+                    "publisher": reply.user_profile_id,
+                    "publisher_avatar":str(UserProfile.objects.get(username=reply.user_profile_id).avatar),  # 需要强转一下
+                    "created_time": reply.created_time,
+                    "content": reply.content,
+                    "msg_id": reply.parent_message
+                }
+                list01.append(dict02)
+            res['data']['messages'].append(dict01)
+
+
+        # "messages": [
+        #             {
+        #                 "id": 1,
+        #                 "content": "<p>写得不错啊，大哥<br></p>",
+        #                 "publisher": "guoxiaonao",
+        #                 "publisher_avatar": "avatar/头像2.png",
+        #                 "reply": [
+        #                     {
+        #                         "publisher": "guoxiaonao",
+        #                         "publisher_avatar": "avatar/头像2.png",
+        #                         "created_time": "2019-06-03 07:52:16",
+        #                         "content": "谢谢您的赏识",
+        #                         "msg_id": 2
+        #                     }
+        #                 ],
+        #                 "created_time": "2019-06-03 07:52:02"
+        #             }
+        #         ],
+        all_messages = Message.objects.filter(topic_id=author_topic.id,parent_message=0)
+        res['data']['messages_count'] = len(all_messages)
 
         return res
 
