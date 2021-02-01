@@ -113,4 +113,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+# 支付宝相关配置
+ALIPAY_APP_ID = 2021000117606835
+# 密钥保存的绝对路径
+ALIPAY_KEY_DIR = os.path.join(BASE_DIR, 'static/key_file/')
+# 支付过程之后，重定向的url
+ALIPAY_RETURN_URL = 'http://127.0.0.1:8000/payment/result/'  # 为什么带一个斜杠？-习惯了- 因为前端也加了杠，如果是自己设计，就不这么写
+ALIPAY_NOTIFY_URL = 'http://127.0.0.1:8000/payment/result/'  # 暂时先和上面的一样
