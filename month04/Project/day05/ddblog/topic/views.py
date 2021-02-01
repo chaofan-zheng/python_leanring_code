@@ -1,18 +1,45 @@
 import json
+
+from django.core.cache import cache
 from django.http import JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
 from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.cache import cache_page
 
 from message.models import Message
+from tools.cache_dec import topic_cache
 from tools.login_dec import login_check, get_user_by_request
 from topic.models import Topic
 from user.models import UserProfile
 
 
 class TopicView(View):
+    # 清除缓存的方法
+    def clear_topic_caches(self, request):
+        # 准备六种不同的key，进行删除操作
+        # 前缀用来区分权限
+        cache_keys = []
+        cache_keys.append(f'topic_cache_self_{request.get_full_path()}&category=tec')
+        cache_keys.append(f'topic_cache_self_{request.get_full_path()}&category=no-tec')
+        cache_keys.append(f'topic_cache_self_{request.get_full_path()}')
+        cache_keys.append(f'topic_cache_{request.get_full_path()}&category=tec')
+        cache_keys.append(f'topic_cache_{request.get_full_path()}&category=no-tec')
+        cache_keys.append(f'topic_cache_{request.get_full_path()}')
+        # print(cache_keys)
+        cache.delete_many(cache_keys)
+
+    # visitor_name = get_user_by_request(request)
+    # author_name = kwargs['author_id']
+    # if visitor_name == author_name:
+    #     # path有三种情况
+    #     # v1/tedu/topics
+    #     # v1/tedu/topics?category=tec
+    #     # v1/tedu/topics?category=no-tec
+    #     cache_key = f'topic_cache_self_{request.get_full_path()}
+
     @method_decorator(login_check)
     def post(self, request, author_id):
         # 1 从请求对象中附加数据中获取用户对象
@@ -49,10 +76,19 @@ class TopicView(View):
         except Exception as e:
             result = {'code': '10301', 'error': e}
             return JsonResponse(result)
+
+        # 如果对文章列表使用了缓存，我们需要清除缓存。
+        self.clear_topic_caches(request)
+
         # 6 返回
         return JsonResponse({'code': 200})
 
+    # @method_decorator(cache_page(100))  # 把文章列表放在缓存里，增加响应速度,
+    # 但是存整个页面会导致一个问题，在缓存有效期内，非博主本人也可以访问博主的所有数据，就不会对权限进行判断了。
+    # 所以需要写个自己的装饰器
+    @method_decorator(topic_cache(1000))
     def get(self, request, author_id):
+        print('---topic get view in ---')
         # 首先要获取文章的作者的这个对象
         # 防止输入错误的情况
         try:
@@ -235,7 +271,7 @@ class TopicView(View):
         res['data']['messages'] = []
         messages = Message.objects.filter(topic_id=author_topic.id, parent_message=0)
         for message in messages:
-            list01=[]
+            list01 = []
             dict01 = {
                 "id": message.id,
                 "content": message.content,
@@ -244,18 +280,17 @@ class TopicView(View):
                 "reply": list01,
                 "created_time": message.created_time
             }
-            replies = Message.objects.filter(topic_id=author_topic.id,parent_message=message.id)
+            replies = Message.objects.filter(topic_id=author_topic.id, parent_message=message.id)
             for reply in replies:
                 dict02 = {
                     "publisher": reply.user_profile_id,
-                    "publisher_avatar":str(UserProfile.objects.get(username=reply.user_profile_id).avatar),  # 需要强转一下
+                    "publisher_avatar": str(UserProfile.objects.get(username=reply.user_profile_id).avatar),  # 需要强转一下
                     "created_time": reply.created_time,
                     "content": reply.content,
                     "msg_id": reply.parent_message
                 }
                 list01.append(dict02)
             res['data']['messages'].append(dict01)
-
 
         # "messages": [
         #             {
@@ -275,7 +310,7 @@ class TopicView(View):
         #                 "created_time": "2019-06-03 07:52:02"
         #             }
         #         ],
-        all_messages = Message.objects.filter(topic_id=author_topic.id,parent_message=0)
+        all_messages = Message.objects.filter(topic_id=author_topic.id, parent_message=0)
         res['data']['messages_count'] = len(all_messages)
 
         return res
